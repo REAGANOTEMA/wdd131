@@ -1,14 +1,24 @@
-// Update current year in footer
-const currentYearElem = document.getElementById("currentyear");
-if (currentYearElem) {
-  const currentYear = new Date().getFullYear();
-  currentYearElem.textContent = currentYear;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  // Set current year
+  const yearSpan = document.getElementById("currentyear");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-// Update last modified date in footer
-const lastModifiedElem = document.getElementById("lastModified");
-if (lastModifiedElem) {
-  const lastModified = new Date(document.lastModified);
-  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-  lastModifiedElem.textContent = `Last modified: ${lastModified.toLocaleDateString(undefined, options)}`;
-}
+  // Typewriter effect for last modified date
+  const lastModifiedElement = document.getElementById("lastModified");
+  if (!lastModifiedElement) return;
+
+  const text = `Last Modified: ${document.lastModified}`;
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      lastModifiedElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 50);
+    }
+  }
+
+  typeWriter();
+});
