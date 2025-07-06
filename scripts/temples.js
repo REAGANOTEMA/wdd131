@@ -1,50 +1,75 @@
-// temples.js - Add JavaScript magic ✨
-
+// temples.js - Magical Experience ✨
 document.addEventListener("DOMContentLoaded", () => {
-  // Hamburger Menu
+  // ========== Hamburger Menu ==========
   const menuButton = document.getElementById("menu");
   const nav = document.querySelector("nav.navigation");
-  
+
   menuButton.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    menuButton.textContent = nav.classList.contains("open") ? "✖" : "☰";
+    const isOpen = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.textContent = isOpen ? "✖" : "☰";
   });
 
-  // Dynamic Footer Year and Last Modified Date
+  // ========== Dynamic Year & Last Modified ==========
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("lastModified").textContent = document.lastModified;
 
-  // Contact Info
+  // ========== Typewriter Contact Info ==========
   const contact = document.getElementById("contact-info");
-  contact.innerHTML = `
-    <p>Contact: +256 772 514 889 | <a href="mailto:rotema@byupathway.edu" style="color:#fff; text-decoration:underline;">rotema@byupathway.edu</a></p>
+  const contactHTML = `
+    Contact: +256 772 514 889 | 
+    <a href="mailto:rotema@byupathway.edu" style="color:#fff; text-decoration:underline;">
+      rotema@byupathway.edu
+    </a>
   `;
 
-  // 3D Image Tilt Effect on Figures
+  let i = 0;
+  function typeWriter() {
+    if (i < contactHTML.length) {
+      contact.innerHTML += contactHTML.charAt(i);
+      i++;
+      setTimeout(typeWriter, 25);
+    }
+  }
+  typeWriter();
+
+  // ========== 3D Parallax Tilt on Hover ==========
   document.querySelectorAll("figure").forEach(figure => {
+    figure.style.transformStyle = "preserve-3d";
+    figure.style.perspective = "1000px";
+
     figure.addEventListener("mousemove", e => {
-      const { left, top, width, height } = figure.getBoundingClientRect();
-      const x = (e.clientX - left) / width - 0.5;
-      const y = (e.clientY - top) / height - 0.5;
-      figure.style.transform = `rotateY(${x * 15}deg) rotateX(${-y * 15}deg)`;
+      const rect = figure.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+
+      figure.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
     });
+
     figure.addEventListener("mouseleave", () => {
-      figure.style.transform = "rotateY(0deg) rotateX(0deg)";
+      figure.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
     });
   });
 
-  // Scroll Animation for figures
-  const figures = document.querySelectorAll("figure");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+  // ========== Scroll Reveal Animation ==========
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          entry.target.classList.remove("hidden");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
 
-  figures.forEach(figure => {
+  document.querySelectorAll("figure").forEach(figure => {
     figure.classList.add("hidden");
     observer.observe(figure);
   });

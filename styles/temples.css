@@ -1,23 +1,61 @@
-/* temples.css - Mobile First */
+/* temples.css - Final Magical Mobile Styles */
+
+:root {
+  --primary-bg: #fdfaf6;
+  --primary-text: #333;
+  --header-bg: #4e342e;
+  --accent: #ffd54f;
+  --accent-dark: #ffb300;
+  --footer-bg: #3e2723;
+  --caption-color: #5d4037;
+  --glow: 0 0 10px rgba(255, 213, 79, 0.6);
+  --transition-fast: 0.3s ease;
+  --transition-smooth: 0.5s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: 'Merriweather', serif;
-  background-color: #fff8f0;
-  color: #333;
+  background-image: url("../images/golden-wall.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--primary-text);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: 0;
+}
+
+/* subtle dark overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -1;
 }
 
 header {
-  background-color: #6d4c41;
+  background: linear-gradient(to right, #6d4c41, #4e342e);
   color: white;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   position: relative;
+  box-shadow: var(--glow);
+  animation: fadeInDown 1s ease-out;
 }
 
 h1 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #menu {
@@ -26,9 +64,14 @@ h1 {
   font-size: 2rem;
   color: white;
   position: absolute;
-  top: 1rem;
+  top: 1.2rem;
   left: 1rem;
   cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+#menu:hover {
+  transform: scale(1.2);
 }
 
 nav.navigation {
@@ -36,6 +79,7 @@ nav.navigation {
   flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
+  transition: max-height var(--transition-smooth);
 }
 
 nav.navigation.open {
@@ -46,65 +90,155 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 nav a:hover {
-  color: #ffcc80;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--accent);
+  transform: scale(1.05);
 }
 
 main {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   max-width: 960px;
   margin: 0 auto;
   text-align: center;
+  animation: fadeIn 1.5s ease-in;
 }
 
 .gallery {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.8rem;
   margin-top: 2rem;
 }
 
+/* Figure Styling with Magical 3D background */
+
 figure {
-  background: white;
+  position: relative;
+  background: #fff8e1;
   padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 14px;
+  box-shadow:
+    0 0 10px rgba(255, 213, 79, 0.3),
+    0 10px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   perspective: 1000px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+figure::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...") center center / cover no-repeat;
+  opacity: 0.12;
+  filter: blur(1.2px);
+  pointer-events: none;
+  border-radius: 14px;
+  z-index: 0;
+}
+
+figure:hover {
+  transform: scale(1.04) rotateY(6deg) rotateX(4deg);
+  box-shadow:
+    0 0 20px 4px rgba(255, 213, 79, 0.7),
+    0 14px 40px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  z-index: 10;
 }
 
 figure img {
+  position: relative;
+  z-index: 1;
   max-width: 100%;
-  border-radius: 8px;
-  transition: transform 0.4s ease-in-out;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+  backface-visibility: hidden;
+}
+
+figure:hover img {
+  transform: scale(1.08);
 }
 
 figcaption {
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
   font-style: italic;
   font-size: 0.95rem;
-  color: #5d4037;
+  color: var(--caption-color);
+  line-height: 1.4;
+  position: relative;
+  z-index: 2;
 }
 
-footer {
-  background-color: #3e2723;
-  color: white;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-}
-
+/* Scroll Reveal Animation */
 .hidden {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--footer-bg);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  border-top: 4px solid var(--accent);
+  box-shadow: var(--glow);
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Make first three images same size, matching the middle (2nd) image */
+.gallery figure:nth-child(-n+3) img {
+  width: 100%;
+  height: 250px;       /* Adjust height to match the 2nd image's natural/desired height */
+  object-fit: cover;   /* Crop/scale image nicely */
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+/* Optional: keep hover zoom consistent */
+.gallery figure:nth-child(-n+3):hover img {
+  transform: scale(1.08);
 }

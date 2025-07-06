@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A picture album showcasing the Heavenly Glory of temples and scriptural scenes." />
+  <meta name="author" content="Reagan Otema" />
   <title>Heavenly Glory – Temple Album</title>
+  
   <link rel="stylesheet" href="styles/temples.css" />
   <link rel="stylesheet" href="styles/temples-large.css" media="screen and (min-width: 768px)" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,8 +17,8 @@
 <body>
   <header>
     <h1>Heavenly Glory – Temple Album</h1>
-    <button id="menu">☰</button>
-    <nav class="navigation">
+    <button id="menu" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
+    <nav class="navigation" role="navigation">
       <a href="index.html">Home</a>
       <a href="#">Old</a>
       <a href="#">New</a>
@@ -24,43 +27,43 @@
     </nav>
   </header>
 
-  <main>
+  <main role="main">
     <h2>The Glorious Kingdom to Come</h2>
     <div class="gallery">
       <figure>
-        <img src="images/nj-coming.jpeg" alt="The New Jerusalem" />
+        <img src="images/nj-coming.jpeg" alt="The New Jerusalem" loading="lazy" />
         <figcaption>"And I saw the holy city, New Jerusalem, coming down from God out of heaven..." – Revelation 21:2</figcaption>
       </figure>
       <figure>
-        <img src="images/jesus.jpg" alt="The Second Coming" />
+        <img src="images/jesus.jpg" alt="The Second Coming" loading="lazy" />
         <figcaption>"They shall see the Son of man coming in the clouds of heaven with power and great glory." – Matthew 24:30</figcaption>
       </figure>
       <figure>
-        <img src="images/judgement.jpeg" alt="Judgment Seat of Christ" />
+        <img src="images/judgement.jpeg" alt="Judgment Seat of Christ" loading="lazy" />
         <figcaption>"For we must all appear before the judgment seat of Christ..." – 2 Corinthians 5:10</figcaption>
       </figure>
       <figure>
-        <img src="images/book.jpeg" alt="Book of Life" />
+        <img src="images/book.jpeg" alt="Book of Life" loading="lazy" />
         <figcaption>"And the books were opened... and another book was opened, which is the book of life." – Revelation 20:12</figcaption>
       </figure>
       <figure>
-        <img src="images/new-jerusalem.JPG" alt="Heaven’s Gates" />
+        <img src="images/new-jerusalem.JPG" alt="Heaven’s Gates" loading="lazy" />
         <figcaption>"The gates of it shall not be shut at all by day: for there shall be no night there." – Revelation 21:25</figcaption>
       </figure>
       <figure>
-        <img src="images/tree.jpeg" alt="Tree of Life" />
+        <img src="images/tree.jpeg" alt="Tree of Life" loading="lazy" />
         <figcaption>"On either side of the river, was the tree of life... and the leaves of the tree were for the healing of the nations." – Revelation 22:2</figcaption>
       </figure>
       <figure>
-        <img src="images/golden-wall.jpeg" alt="Lamb on the Throne" />
+        <img src="images/golden-wall.jpeg" alt="Lamb on the Throne" loading="lazy" />
         <figcaption>"The Lamb which is in the midst of the throne shall feed them..." – Revelation 7:17</figcaption>
       </figure>
       <figure>
-        <img src="images/christ1.jpeg" alt="Crown of Life" />
+        <img src="images/christ1.jpeg" alt="Crown of Life" loading="lazy" />
         <figcaption>"Blessed is the man that endureth temptation... he shall receive the crown of life." – James 1:12</figcaption>
       </figure>
       <figure>
-        <img src="images/glassy-sea.jpeg" alt="River of Life" />
+        <img src="images/glassy-sea.jpeg" alt="River of Life" loading="lazy" />
         <figcaption>"A pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb." – Revelation 22:1</figcaption>
       </figure>
     </div>

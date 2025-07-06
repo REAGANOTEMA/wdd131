@@ -1,4 +1,24 @@
-/* temples-large.css - Styles for wider screens */
+/* temples-large.css - Styles for wider screens (768px+) */
+
+/* Background image for the whole page */
+body {
+  background-image: url("../images/golden-wall.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 0;
+}
+
+/* Optional subtle dark overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
 
 nav.navigation {
   display: flex !important;
@@ -7,44 +27,148 @@ nav.navigation {
   align-items: center;
   gap: 2rem;
   background-color: #5d4037;
-  padding: 1rem;
+  padding: 1rem 2rem;
   font-size: 1.1rem;
+  transition: background-color 0.3s ease;
 }
 
-#menu {
-  display: none;
-}
-
-.gallery {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-figure {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-figure:hover {
-  transform: scale(1.05) rotateY(5deg) rotateX(3deg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-figcaption {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #4e342e;
-}
-
-main {
-  padding: 2rem;
-}
-
-footer {
-  font-size: 1rem;
-  padding: 2rem 1rem;
+nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav a:hover {
   color: #ffe082;
+  transform: scale(1.15);
+}
+
+/* Hide mobile menu button */
+#menu {
+  display: none;
+}
+
+/* Responsive Gallery Layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Figure Styling */
+figure {
+  position: relative;
+  background: #fff8e1;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow:
+    0 0 12px rgba(255, 224, 130, 0.6),
+    0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+/* Magical parchment textured background behind images */
+figure::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...") center center / cover no-repeat;
+  opacity: 0.15;
+  filter: blur(1.2px);
+  pointer-events: none;
+  border-radius: 16px;
+  z-index: 0;
+}
+
+figure:hover {
+  transform: scale(1.07) rotateY(8deg) rotateX(5deg);
+  box-shadow:
+    0 0 20px 5px rgba(255, 224, 130, 0.9),
+    0 25px 50px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  cursor: pointer;
+}
+
+figure img {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  border-radius: 12px;
+  transition: transform 0.5s ease-in-out;
+}
+
+figure:hover img {
   transform: scale(1.1);
+}
+
+/* Caption Styling */
+figcaption {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4e342e;
+  margin-top: 0.8rem;
+  text-align: center;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+/* Main Section */
+main {
+  padding: 2rem 4rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Section */
+footer {
+  background-color: #3e2723;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  border-top: 3px solid #ffe082;
+}
+
+/* Animations */
+.hidden {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Buttons */
+button {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Make first three images same size, matching the middle (2nd) image */
+.gallery figure:nth-child(-n+3) img {
+  width: 100%;
+  height: 250px;       /* Adjust height to match the 2nd image's natural/desired height */
+  object-fit: cover;   /* Crop/scale image nicely */
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+/* Optional: keep hover zoom consistent */
+.gallery figure:nth-child(-n+3):hover img {
+  transform: scale(1.08);
 }
