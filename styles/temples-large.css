@@ -1,16 +1,27 @@
 /* temples-large.css - Styles for wider screens (768px+) */
 
-/* Updated magical shimmering ultra-white background for whole page */
 body {
   background: linear-gradient(145deg, #ffffff, #fefefe, #ffffff);
   background-size: 300% 300%;
   animation: glowingWhite 10s ease infinite;
   position: relative;
   z-index: 0;
-  perspective: 1200px; /* for subtle 3D depth */
+  perspective: 1200px;
 }
 
-/* Subtle glowing radial overlay for extra shimmer */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none !important;
+  }
+
+  figure,
+  figure img,
+  nav a,
+  button {
+    transition: none !important;
+  }
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -24,7 +35,7 @@ body::before {
 }
 
 nav.navigation {
-  display: flex !important;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -42,17 +53,24 @@ nav a {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
   color: #ffe082;
   transform: scale(1.15);
+  outline: none;
 }
 
-/* Hide mobile menu button */
+/* Ensure focusable elements are visibly outlined */
+nav a:focus-visible,
+button:focus-visible {
+  outline: 2px dashed #ffe082;
+  outline-offset: 4px;
+}
+
 #menu {
   display: none;
 }
 
-/* Responsive Gallery Layout */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -60,7 +78,6 @@ nav a:hover {
   margin-top: 2rem;
 }
 
-/* Figure Styling */
 figure {
   position: relative;
   background: #fff8e1;
@@ -75,7 +92,6 @@ figure {
   overflow: hidden;
 }
 
-/* Magical parchment textured background behind images */
 figure::before {
   content: "";
   position: absolute;
@@ -109,7 +125,6 @@ figure:hover img {
   transform: scale(1.1);
 }
 
-/* Caption Styling */
 figcaption {
   font-size: 1rem;
   line-height: 1.6;
@@ -121,7 +136,6 @@ figcaption {
   z-index: 2;
 }
 
-/* Main Section */
 main {
   padding: 2rem 4rem;
   text-align: center;
@@ -129,7 +143,6 @@ main {
   margin: 0 auto;
 }
 
-/* Footer Section */
 footer {
   background-color: #3e2723;
   color: white;
@@ -152,31 +165,31 @@ footer {
   transform: translateY(0);
 }
 
-/* Buttons */
 button {
   transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
 }
 
-button:hover {
+button:hover,
+button:focus-visible {
   transform: scale(1.1);
+  outline: 2px dashed #ffe082;
+  outline-offset: 4px;
 }
 
-/* Make first three images same size, matching the middle (2nd) image */
 .gallery figure:nth-child(-n+3) img {
   width: 100%;
-  height: 250px; /* Adjust height to match the 2nd image's natural/desired height */
-  object-fit: cover; /* Crop/scale image nicely */
+  height: 250px;
+  object-fit: cover;
   display: block;
   border-radius: 10px;
   transition: transform 0.4s ease;
 }
 
-/* Optional: keep hover zoom consistent */
 .gallery figure:nth-child(-n+3):hover img {
   transform: scale(1.08);
 }
 
-/* Ultra-white shimmering animation */
 @keyframes glowingWhite {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
