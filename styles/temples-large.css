@@ -205,3 +205,40 @@ button:focus-visible {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ===== Updated Header Styles for 3D Animation in Dark Yellow ===== */
+header {
+  perspective: 800px;
+  text-align: center;
+  margin: 2rem 0 3rem;
+  position: relative;
+  z-index: 20;
+}
+
+header h1 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: #b8860b; /* Dark Yellow */
+  letter-spacing: 0.05em;
+  transform-style: preserve-3d;
+  animation: subtle3dSpin 6s ease-in-out infinite;
+  user-select: none;
+  margin: 0;
+  text-shadow: none;
+}
+
+@keyframes subtle3dSpin {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  }
+  25% {
+    transform: rotateX(5deg) rotateY(10deg) translateZ(5px);
+  }
+  50% {
+    transform: rotateX(-5deg) rotateY(-10deg) translateZ(8px);
+  }
+  75% {
+    transform: rotateX(3deg) rotateY(7deg) translateZ(3px);
+  }
+}

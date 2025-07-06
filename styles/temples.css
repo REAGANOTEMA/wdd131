@@ -46,10 +46,13 @@ header {
   position: relative;
   box-shadow: var(--glow);
   animation: fadeInDown 1s ease-out;
+  perspective: 800px;
+  margin: 2rem 0 3rem;
+  z-index: 20;
 }
 
 h1, h2 {
-  color: #b8860b;
+  color: #b8860b; /* Updated to dark yellow */
   font-weight: 900;
   letter-spacing: 2px;
   text-shadow: none;
@@ -246,4 +249,33 @@ footer a {
 
 .gallery figure:nth-child(-n+3):hover img {
   transform: scale(1.08);
+}
+
+/* Updated header h1 3D animation, no glow, dark yellow */
+header h1 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: #b8860b; /* dark yellow */
+  letter-spacing: 0.05em;
+  transform-style: preserve-3d;
+  animation: subtle3dSpin 6s ease-in-out infinite;
+  text-shadow: none;
+  user-select: none;
+  margin: 0;
+}
+
+@keyframes subtle3dSpin {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  }
+  25% {
+    transform: rotateX(5deg) rotateY(10deg) translateZ(5px);
+  }
+  50% {
+    transform: rotateX(-5deg) rotateY(-10deg) translateZ(8px);
+  }
+  75% {
+    transform: rotateX(3deg) rotateY(7deg) translateZ(3px);
+  }
 }
