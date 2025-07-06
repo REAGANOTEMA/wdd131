@@ -1,0 +1,50 @@
+/* temples-large.css - Styles for wider screens */
+
+nav.navigation {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: #5d4037;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+#menu {
+  display: none;
+}
+
+.gallery {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+figure {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+figure:hover {
+  transform: scale(1.05) rotateY(5deg) rotateX(3deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+figcaption {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #4e342e;
+}
+
+main {
+  padding: 2rem;
+}
+
+footer {
+  font-size: 1rem;
+  padding: 2rem 1rem;
+}
+
+nav a:hover {
+  color: #ffe082;
+  transform: scale(1.1);
+}
