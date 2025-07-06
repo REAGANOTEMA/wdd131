@@ -119,6 +119,7 @@ figure img {
   max-width: 100%;
   border-radius: 12px;
   transition: transform 0.5s ease-in-out;
+  backface-visibility: hidden;
 }
 
 figure:hover img {
@@ -151,6 +152,7 @@ footer {
   padding: 2rem 1rem;
   margin-top: 4rem;
   border-top: 3px solid #ffe082;
+  box-shadow: 0 0 10px rgba(255, 224, 130, 0.6);
 }
 
 /* Animations */
@@ -168,6 +170,12 @@ footer {
 button {
   transition: transform 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
+  background-color: var(--accent);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #4e342e;
 }
 
 button:hover,
@@ -175,6 +183,8 @@ button:focus-visible {
   transform: scale(1.1);
   outline: 2px dashed #ffe082;
   outline-offset: 4px;
+  background-color: var(--accent-dark);
+  color: #3e2723;
 }
 
 .gallery figure:nth-child(-n+3) img {
@@ -182,7 +192,7 @@ button:focus-visible {
   height: 250px;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
+  border-radius: 12px;
   transition: transform 0.4s ease;
 }
 
