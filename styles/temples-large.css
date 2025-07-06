@@ -1,23 +1,26 @@
 /* temples-large.css - Styles for wider screens (768px+) */
 
-/* Background image for the whole page */
+/* Updated magical shimmering ultra-white background for whole page */
 body {
-  background-image: url("../images/golden-wall.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: linear-gradient(145deg, #ffffff, #fefefe, #ffffff);
+  background-size: 300% 300%;
+  animation: glowingWhite 10s ease infinite;
   position: relative;
   z-index: 0;
+  perspective: 1200px; /* for subtle 3D depth */
 }
 
-/* Optional subtle dark overlay for readability */
+/* Subtle glowing radial overlay for extra shimmer */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.35);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 70%);
   z-index: -1;
+  pointer-events: none;
 }
 
 nav.navigation {
@@ -161,8 +164,8 @@ button:hover {
 /* Make first three images same size, matching the middle (2nd) image */
 .gallery figure:nth-child(-n+3) img {
   width: 100%;
-  height: 250px;       /* Adjust height to match the 2nd image's natural/desired height */
-  object-fit: cover;   /* Crop/scale image nicely */
+  height: 250px; /* Adjust height to match the 2nd image's natural/desired height */
+  object-fit: cover; /* Crop/scale image nicely */
   display: block;
   border-radius: 10px;
   transition: transform 0.4s ease;
@@ -171,4 +174,11 @@ button:hover {
 /* Optional: keep hover zoom consistent */
 .gallery figure:nth-child(-n+3):hover img {
   transform: scale(1.08);
+}
+
+/* Ultra-white shimmering animation */
+@keyframes glowingWhite {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
