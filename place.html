@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover Uganda - The Pearl of Africa</title>
+  <link rel="stylesheet" href="styles/place.css" />
+  <script src="scripts/place.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="images/logo-idaho.webp" alt="BYU‑I logo" class="logo" />
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">W1</a></li>
+        <li><a href="#">W2</a></li>
+        <li><a href="#">W3</a></li>
+        <li><a href="#">W4</a></li>
+        <li><a href="#">W5</a></li>
+        <li><a href="#">W6</a></li>
+        <li><a href="#">W7</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Slideshow -->
+    <section class="hero-slideshow" aria-label="Main slideshow">
+      <!-- Slide 1 -->
+      <div class="slide active" role="group" aria-roledescription="slide" aria-label="Discover the Pearl of Africa">
+        <img src="images/hero-monkey.webp" alt="Uganda landscape" />
+        <div class="caption">
+          <h1>Discover the Pearl of Africa</h1>
+          <p class="small-text">Serene lakes, misty peaks, and boundless adventure await in Uganda’s breathtaking landscapes.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="Giraffe Safari">
+        <img src="images/giraffe.webp" alt="Giraffe in Uganda" />
+        <div class="caption">
+          <h1>Giraffe Safari</h1>
+          <p class="small-text">Graceful giants roam free experience wildlife up close and personal in their natural habitat.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="Source of the River Nile">
+        <img src="images/hero-medium.webp" alt="Source of the River Nile" />
+        <div class="caption">
+          <h1>Source of the Nile</h1>
+          <p class="small-text">Stand where the world’s greatest river begins, feel history and nature converge in awe.</p>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="Mountain Gorilla">
+        <img src="images/black-monkey.webp" alt="Mountain gorilla" />
+        <div class="caption">
+          <h1>Mountain Gorilla</h1>
+          <p class="small-text">Encounter these majestic giants amidst Uganda’s misty mountain forests, unforgettable and humbling.</p>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="Birdlife Paradise">
+        <img src="images/birds-flying.webp" alt="Birds flying in Uganda" />
+        <div class="caption">
+          <h1>Birdlife Paradise</h1>
+          <p class="small-text">Feathered visitors bring the skies alive an avian spectacle found only in Uganda’s vibrant ecosystems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" aria-labelledby="about-uganda">
+      <h2 id="about-uganda">About Uganda</h2>
+      <p>
+        Uganda sparkles with lush national parks, misty mountain forests, and the historic Source of the Nile. Rolling green hills,
+        vibrant lakeshores, and warm, welcoming people make every trip unforgettable. Be ready for wildlife adventures,
+        cultural discoveries, and heartfelt hospitality.
+      </p>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" aria-label="Wildlife and Cultural Highlights">
+      <div class="gallery-item bloom">
+        <img src="images/dances.webp" alt="Acholi tribe dance" />
+        <p>
+          The Acholi tribe’s rhythmic dance traditions reflect unity and heritage. Dressed in vibrant attire and moving in perfect harmony,
+          dancers invite visitors to witness stories of history and community passed through generations.
+        </p>
+      </div>
+      <div class="gallery-item bloom">
+        <img src="images/gorilla-young.webp" alt="Young mountain gorilla" />
+        <p>
+          Witnessing a young mountain gorilla in Bwindi Forest is magical. Their gentle curiosity and calm presence remind us of our
+          responsibility to protect these endangered creatures in their natural habitat.
+        </p>
+      </div>
+      <div class="gallery-item bloom">
+        <img src="images/golden-monkey.webp" alt="Golden monkey" />
+        <p>
+          Golden monkeys shimmer through Mgahinga’s lush bamboo forests. Their playful energy and golden fur captivate visitors and
+          highlight Uganda’s rich biodiversity at every turn.
+        </p>
+      </div>
+    </section>
+
+    <!-- Daily Life & Economy -->
+    <section class="social" aria-labelledby="daily-life">
+      <h2 id="daily-life">Daily Life & Economy</h2>
+      <div class="social-grid">
+        <div class="social-item bloom">
+          <img src="images/farming.webp" alt="Farming in Uganda" />
+          <p>
+            As the sun rises, Ugandan farmers begin their day in rich green fields. From coffee and bananas to maize, agriculture supports families and fuels the nation's rural economy with hope and resilience.
+          </p>
+        </div>
+
+        <div class="social-item bloom">
+          <img src="images/market-economy-farmers.webp" alt="Market in Uganda" />
+          <p>
+            Uganda’s village markets overflow with handmade baskets, fresh produce, and vibrant colors. These lively gatherings are more than trade—they are the heartbeats of communities, filled with stories and traditions.
+          </p>
+        </div>
+
+        <div class="social-item bloom">
+          <img src="images/baboon-with-baby.webp" alt="Baboon with baby in Uganda" />
+          <p>
+            In Uganda’s rural landscapes, wildlife and people live in harmony. A baboon caring for her baby reflects the tenderness of life and reminds us of our duty to protect nature’s beautiful balance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weather -->
+    <section class="weather" aria-labelledby="current-weather">
+      <h2 id="current-weather">Current Weather <span class="weather-icon-wide" aria-hidden="true"></span></h2>
+      <div class="weather-details">
+        <img src="images/weather.svg" alt="Weather icon" class="weather-icon-mobile" />
+        <p>Temperature: <span id="temp"></span>°C</p>
+        <p>Wind Speed: <span id="wind"></span> km/h</p>
+        <p>Wind Chill: <span id="chill"></span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> | Created by Reagan Otema</p>
+    <p>Last updated: <span id="modified"></span></p>
+  </footer>
+</body>
+</html>
