@@ -6,7 +6,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   /* New background image for body, replace with your own */
-  background: url('../images/ug-logo.webp') no-repeat center center fixed;
+  background: url('../images/river.webp') no-repeat center center fixed;
   background-size: cover;
   color: #222;
   line-height: 1.6;
