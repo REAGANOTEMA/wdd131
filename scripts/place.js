@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Set current year and last modified date
-  document.getElementById("year").textContent = new Date().getFullYear();
-  document.getElementById("modified").textContent = new Date(document.lastModified).toLocaleDateString();
+  // Set current year and last modified date dynamically
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const modifiedEl = document.getElementById("modified");
+  if (modifiedEl) modifiedEl.textContent = new Date(document.lastModified).toLocaleDateString();
 
   // HERO SLIDESHOW: auto-slide every 3 seconds
   const slides = document.querySelectorAll(".hero-slideshow .slide");
@@ -18,15 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
   }
 
-  // Initial show
-  showSlide(currentSlide);
+  if (slides.length > 0) {
+    showSlide(currentSlide);
+    setInterval(nextSlide, 3000);
+  }
 
-  // Auto cycle
-  setInterval(nextSlide, 3000);
-
-  // WEATHER: simulate fetch and fill automatically (mock data)
+  // WEATHER: mock data update
   function updateWeather() {
-    // Mock data, replace with real API if needed
     const weatherData = {
       temp: 26,
       windSpeed: 12,
@@ -34,26 +35,41 @@ document.addEventListener("DOMContentLoaded", () => {
       conditions: "Sunny",
       icon: "☀️"
     };
-    document.getElementById("temp").textContent = `${weatherData.temp} °C`;
-    document.getElementById("windSpeed").textContent = `${weatherData.windSpeed} km/h`;
-    document.getElementById("chill").textContent = `${weatherData.chill} °C`;
-    document.getElementById("conditions").textContent = weatherData.conditions;
-    document.getElementById("weatherIconWide").textContent = weatherData.icon;
-    document.getElementById("weatherIconMobile").textContent = weatherData.icon;
+
+    const tempEl = document.getElementById("temp");
+    if (tempEl) tempEl.textContent = `${weatherData.temp} °C`;
+
+    const windSpeedEl = document.getElementById("windSpeed");
+    if (windSpeedEl) windSpeedEl.textContent = `${weatherData.windSpeed} km/h`;
+
+    const chillEl = document.getElementById("chill");
+    if (chillEl) chillEl.textContent = `${weatherData.chill} °C`;
+
+    const conditionsEl = document.getElementById("conditions");
+    if (conditionsEl) conditionsEl.textContent = weatherData.conditions;
+
+    const weatherIconWideEl = document.getElementById("weatherIconWide");
+    if (weatherIconWideEl) weatherIconWideEl.textContent = weatherData.icon;
+
+    const weatherIconMobileEl = document.getElementById("weatherIconMobile");
+    if (weatherIconMobileEl) weatherIconMobileEl.textContent = weatherData.icon;
   }
 
   updateWeather();
 
-  // Animate writings fade-in on scroll (optional)
+  // Animate fade-in, fadeInUp, slideInDown elements on scroll with Intersection Observer
   const animatedElements = document.querySelectorAll(".fade-in, .fadeInUp, .slideInDown");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add("animated");
-      }
-    });
-  }, { threshold: 0.2 });
+  if (animatedElements.length > 0 && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animated");
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, { threshold: 0.2 });
 
-  animatedElements.forEach(el => observer.observe(el));
+    animatedElements.forEach(el => observer.observe(el));
+  }
 });
