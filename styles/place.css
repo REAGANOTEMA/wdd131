@@ -5,7 +5,8 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background: url('../images/flag-for-flag-uganda.svg') no-repeat center center fixed;
+  /* New background image for body, replace with your own */
+  background: url('../images/your-new-background.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #222;
   line-height: 1.6;
@@ -26,31 +27,71 @@ a:focus {
 
 /* Header */
 header {
-  background: rgba(255, 255, 255, 0.9);
+  background: url('../images/flag-for-flag-uganda.svg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  padding: 1rem 2rem; /* Reduced padding to shrink height */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
   display: flex;
   align-items: center;
-  padding: 0.8rem 2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 70px; /* Reduced height */
 }
+
+/* Semi-transparent overlay to soften the flag */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85); /* slightly more visible text */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure content stands out */
+header * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Bigger logo, adjusted for header height */
 .logo {
-  height: 50px;
-  margin-right: 2rem;
+  height: 70px; /* Slightly reduced */
+  max-height: 12vh;
+  width: auto;
+  margin-right: 1.5rem;
 }
+
+/* Navigation list */
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 1.3rem;
+  gap: 1.8rem;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
+  align-items: center;
 }
+
+/* Strong, visible link styling */
 .nav-list li a {
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.3rem 0.6rem;
+  color: #000;
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus {
+  background-color: rgba(44, 122, 123, 0.15);
+  color: #2c7a7b;
+  transform: scale(1.05);
 }
 
 /* Main container */
@@ -114,17 +155,17 @@ main {
   margin: 0 0 0.4rem;
   font-size: 2.8rem;
   font-weight: 700;
-  color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  color: #000000; /* changed to black for strong visibility */
+  text-shadow: 0 2px 8px rgba(255,255,255,0.8);
   animation: slideInDown 0.8s ease forwards;
 }
 .caption .small-text {
   font-size: 1.15rem;
   font-weight: 400;
-  color: #f0f0f0cc;
+  color: #222222cc; /* darker text for visibility */
   max-width: 70%;
   margin: 0 auto;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 6px rgba(255,255,255,0.7);
   animation: fadeIn 1.5s ease forwards;
 }
 
@@ -136,6 +177,13 @@ main {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.hero-slideshow .slide.active .caption {
+  animation: fadeInScale 0.8s ease forwards;
 }
 
 /* About Section */
@@ -156,10 +204,6 @@ main {
   color: #444;
   line-height: 1.5;
   animation: fadeInUp 1s ease forwards;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Gallery Section */
@@ -205,7 +249,7 @@ main {
   line-height: 1.4;
 }
 
-/* Daily Life & Economy Section */
+/* Social Section */
 .social {
   margin-bottom: 3rem;
 }
@@ -346,13 +390,12 @@ footer {
 @media (max-width: 480px) {
   header {
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.5rem;
   }
   .nav-list {
     justify-content: center;
-  }
-  .nav-list li {
-    margin-bottom: 0.6rem;
+    flex-direction: column;
+    gap: 1rem;
   }
   .hero-slideshow {
     height: 260px;
@@ -375,25 +418,21 @@ footer {
   }
 }
 
-/* NEW: Additional polished animation for lively hero caption */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* ----- YOUR REQUESTED OVERRIDES ----- */
+
+/* Make header background solid white (remove flag background) */
+header {
+  background: white !important;
 }
 
-.hero-slideshow .slide.active .caption {
-  animation: fadeInScale 0.8s ease forwards;
+/* Hero slideshow headings white with subtle shadow */
+.hero-slideshow .caption h1 {
+  color: white !important;
+  text-shadow: 0 2px 8px rgba(5, 1, 1, 0.6);
 }
 
-/* Make sure animated class triggers smooth opacity & transform */
-.animated {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+/* Smaller text under hero headings black with no shadow */
+.hero-slideshow .caption .small-text {
+  color: rgb(244, 238, 238) !important;
+  text-shadow: none !important;
 }

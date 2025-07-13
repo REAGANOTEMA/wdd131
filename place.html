@@ -11,7 +11,12 @@
 </head>
 <body>
   <header>
-    <img src="images/logo-idaho.webp" alt="BYU‑I logo" class="logo" />
+    <!-- Header Ribbon -->
+    <div class="header-ribbon" role="banner">
+      <strong>Explore Uganda – The Pearl of Africa</strong>
+    </div>
+
+    <img src="images/logo-idaho.webp" alt="Discover Uganda Logo" class="logo" />
     <nav>
       <ul class="nav-list">
         <li><a href="#">Home</a></li>
@@ -53,7 +58,7 @@
 
       <!-- Slide 3 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="Source of the River Nile">
-        <img src="images/hero-medium.webp" alt="Source of the River Nile" />
+        <img src="images/hero-nile.webp" alt="Source of the River Nile" />
         <div class="caption">
           <h1>Source of the Nile</h1>
           <p class="small-text">Stand where the world’s greatest river begins, feel history and nature converge in awe.</p>
@@ -62,7 +67,7 @@
 
       <!-- Slide 4 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="Mountain Gorilla">
-        <img src="images/black-monkey.webp" alt="Mountain gorilla" />
+        <img src="images/moutain-gorilla.webp" alt="Mountain gorilla" />
         <div class="caption">
           <h1>Mountain Gorilla</h1>
           <p class="small-text">Encounter these majestic giants amidst Uganda’s misty mountain forests, unforgettable and humbling.</p>
@@ -106,7 +111,7 @@
         </p>
       </div>
       <div class="gallery-item bloom">
-        <img src="images/golden-monkey.webp" alt="Golden monkey" />
+        <img src="images/golden_monkey2.webp" alt="Golden monkey" />
         <p>
           Golden monkeys shimmer through Mgahinga’s lush bamboo forests. Their playful energy and golden fur captivate visitors and
           highlight Uganda’s rich biodiversity at every turn.
@@ -143,11 +148,14 @@
 
     <!-- Weather -->
     <section class="weather" aria-labelledby="current-weather">
-      <h2 id="current-weather">Current Weather <span class="weather-icon-wide" aria-hidden="true"></span></h2>
+      <h2 id="current-weather">
+        Current Weather 
+        <span id="weatherIconWide" class="weather-icon-wide" aria-hidden="true"></span>
+      </h2>
       <div class="weather-details">
-        <img src="images/weather.svg" alt="Weather icon" class="weather-icon-mobile" />
-        <p>Temperature: <span id="temp"></span>°C</p>
-        <p>Wind Speed: <span id="wind"></span> km/h</p>
+        <img src="images/weather.svg" alt="Weather icon" id="weatherIconMobile" class="weather-icon-mobile" />
+        <p>Temperature: <span id="temp"></span> °C</p>
+        <p>Wind Speed: <span id="windSpeed"></span> km/h</p>
         <p>Wind Chill: <span id="chill"></span></p>
       </div>
     </section>
