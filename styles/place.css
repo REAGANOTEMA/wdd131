@@ -5,7 +5,6 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  /* New background image for body, replace with your own */
   background: url('../images/river.webp') no-repeat center center fixed;
   background-size: cover;
   color: #222;
@@ -30,14 +29,14 @@ header {
   background: url('../images/flag-for-flag-uganda.svg') no-repeat center center;
   background-size: cover;
   position: relative;
-  padding: 1rem 2rem; /* Reduced padding to shrink height */
+  padding: 1rem 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  min-height: 70px; /* Reduced height */
+  min-height: 70px;
 }
 
 /* Semi-transparent overlay to soften the flag */
@@ -45,7 +44,7 @@ header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.85); /* slightly more visible text */
+  background: rgba(255, 255, 255, 0.85);
   z-index: 1;
   pointer-events: none;
 }
@@ -58,7 +57,7 @@ header * {
 
 /* Bigger logo, adjusted for header height */
 .logo {
-  height: 70px; /* Slightly reduced */
+  height: 70px;
   max-height: 12vh;
   width: auto;
   margin-right: 1.5rem;
@@ -155,14 +154,14 @@ main {
   margin: 0 0 0.4rem;
   font-size: 2.8rem;
   font-weight: 700;
-  color: #000000; /* changed to black for strong visibility */
+  color: #000000;
   text-shadow: 0 2px 8px rgba(255,255,255,0.8);
   animation: slideInDown 0.8s ease forwards;
 }
 .caption .small-text {
   font-size: 1.15rem;
   font-weight: 400;
-  color: #222222cc; /* darker text for visibility */
+  color: #222222cc;
   max-width: 70%;
   margin: 0 auto;
   text-shadow: 0 1px 6px rgba(255,255,255,0.7);
@@ -359,10 +358,6 @@ footer {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -419,19 +414,13 @@ footer {
 }
 
 /* ----- YOUR REQUESTED OVERRIDES ----- */
-
-/* Make header background solid white (remove flag background) */
 header {
   background: white !important;
 }
-
-/* Hero slideshow headings white with subtle shadow */
 .hero-slideshow .caption h1 {
   color: white !important;
   text-shadow: 0 2px 8px rgba(5, 1, 1, 0.6);
 }
-
-/* Smaller text under hero headings black with no shadow */
 .hero-slideshow .caption .small-text {
   color: rgb(244, 238, 238) !important;
   text-shadow: none !important;

@@ -1,10 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Set current year and last modified date dynamically
+  // Set current year and last modified date
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   const modifiedEl = document.getElementById("modified");
-  if (modifiedEl) modifiedEl.textContent = new Date(document.lastModified).toLocaleDateString();
+  if (modifiedEl) {
+    const modifiedDate = new Date(document.lastModified);
+    modifiedEl.textContent = modifiedDate.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+  }
 
   // HERO SLIDESHOW: auto-slide every 3 seconds
   const slides = document.querySelectorAll(".hero-slideshow .slide");
@@ -57,18 +64,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateWeather();
 
-  // Animate fade-in, fadeInUp, slideInDown elements on scroll with Intersection Observer
-  const animatedElements = document.querySelectorAll(".fade-in, .fadeInUp, .slideInDown");
+  // Animate elements on scroll using Intersection Observer
+  const animatedElements = document.querySelectorAll(
+    ".fade-in, .fade-in-up, .slide-in-down"
+  );
 
-  if (animatedElements.length > 0 && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animated");
-          observer.unobserve(entry.target); // Stop observing once animated
-        }
-      });
-    }, { threshold: 0.2 });
+  if (animatedElements.length && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
     animatedElements.forEach(el => observer.observe(el));
   }
