@@ -3,7 +3,7 @@
   --main-bg-color: #f5f5f5;
   --accent-color: #006400;
   --text-color: #333;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Global Styles */
@@ -25,6 +25,7 @@ a:focus,
 .bloom:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 3px;
+  cursor: pointer;
 }
 
 /* Header */
@@ -70,6 +71,7 @@ nav {
   background-color: #228B22;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .nav-list li a:hover,
@@ -99,6 +101,7 @@ nav {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 1s ease, transform 1s ease;
+  object-fit: cover;
 }
 
 .slide.active img {
@@ -157,7 +160,7 @@ nav {
   max-width: 400px;
   background-color: #fff;
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   text-align: center;
 }
@@ -166,6 +169,9 @@ nav {
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
+  animation: fadeZoom 1s ease forwards;
+  opacity: 0;
+  transition: transform 0.4s ease;
 }
 
 /* Social Section */
@@ -194,13 +200,26 @@ nav {
   background-color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .social-item img {
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
+  animation: fadeZoom 1s ease forwards;
+  opacity: 0;
+  transition: transform 0.4s ease;
+}
+
+/* Hover Effects */
+.bloom:hover,
+.gallery-item:hover img,
+.social-item:hover img {
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Weather Section */
@@ -242,11 +261,6 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.bloom:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
 /* Fade Zoom Animation */
 @keyframes fadeZoom {
   0% {
@@ -257,19 +271,6 @@ footer {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-.gallery-item img,
-.social-item img {
-  animation: fadeZoom 1s ease forwards;
-  opacity: 0;
-}
-
-/* Hover Zoom */
-.gallery-item:hover img,
-.social-item:hover img {
-  transform: scale(1.05);
-  transition: transform 0.4s ease;
 }
 
 /* Reduced Motion Preference */

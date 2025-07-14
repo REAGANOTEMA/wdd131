@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Set current year
+  // Set current year dynamically
   const yearEl = document.getElementById("year");
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
