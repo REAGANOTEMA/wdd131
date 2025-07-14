@@ -7,6 +7,10 @@
 }
 
 /* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -14,6 +18,13 @@ body {
   background-color: var(--main-bg-color);
   color: var(--text-color);
   line-height: 1.6;
+}
+
+/* Accessibility: Focus Outlines */
+a:focus,
+.bloom:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
 }
 
 /* Header */
@@ -61,7 +72,8 @@ nav {
   transition: background-color 0.3s ease;
 }
 
-.nav-list li a:hover {
+.nav-list li a:hover,
+.nav-list li a:focus {
   background-color: #2e8b57;
 }
 
@@ -84,6 +96,14 @@ nav {
   width: 100%;
   height: auto;
   display: block;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide.active img {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .caption {
@@ -95,7 +115,7 @@ nav {
 
 .caption h1 {
   margin: 0.5rem 0;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .caption .small-text {
@@ -118,7 +138,7 @@ nav {
 }
 
 .about h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--accent-color);
 }
 
@@ -156,7 +176,7 @@ nav {
 
 .social h2 {
   color: var(--accent-color);
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -190,7 +210,7 @@ nav {
 }
 
 .weather h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--accent-color);
   text-align: center;
 }
@@ -227,7 +247,7 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Image Animations */
+/* Fade Zoom Animation */
 @keyframes fadeZoom {
   0% {
     opacity: 0;
@@ -240,29 +260,24 @@ footer {
 }
 
 .gallery-item img,
-.social-item img,
-.slide img {
+.social-item img {
   animation: fadeZoom 1s ease forwards;
-  opacity: 0; /* For animation */
+  opacity: 0;
 }
 
-/* Hover zoom for interactivity */
+/* Hover Zoom */
 .gallery-item:hover img,
 .social-item:hover img {
   transform: scale(1.05);
   transition: transform 0.4s ease;
 }
 
-/* For slideshow transitions */
-.slide img {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.slide.active img {
-  opacity: 1;
-  transform: scale(1);
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Responsive Design */
@@ -273,7 +288,7 @@ footer {
   }
 
   .caption h1 {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
   }
 
   .gallery,
