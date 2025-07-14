@@ -1,9 +1,10 @@
 /* Root Variables */
+/* Root Variables */
 :root {
   --main-bg-color: #f5f5f5;
   --accent-color: #006400;
   --text-color: #333;
-  --font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family: 'Open Sans', sans-serif;
 }
 
 /* Global Styles */
@@ -19,6 +20,7 @@ body {
   color: var(--text-color);
   line-height: 1.6;
 }
+
 
 /* Accessibility: Focus Outlines */
 a:focus,
