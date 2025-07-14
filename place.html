@@ -10,23 +10,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
 
-  <!-- Audit compliance: include :root and ::after -->
-  <style>
-    :root {
-      --main-bg-color: #f5f5f5;
-      --accent-color: #006400;
-    }
-
-    .caption::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 2px;
-      background-color: var(--accent-color);
-      margin-top: 0.5rem;
-    }
-  </style>
-
+  <!-- Styles and Scripts -->
   <link rel="stylesheet" href="styles/place.css" />
   <script src="scripts/place.js" defer></script>
 </head>
@@ -35,7 +19,6 @@
     <div class="header-ribbon" role="banner">
       <strong>Explore Uganda – The Pearl of Africa</strong>
     </div>
-
     <img src="images/logo-idaho.webp" alt="Discover Uganda Logo" class="logo" />
     <nav>
       <ul class="nav-list">
@@ -52,6 +35,7 @@
   </header>
 
   <main>
+    <!-- Hero Slideshow -->
     <section class="hero-slideshow" aria-label="Main slideshow">
       <div class="slide active" role="group" aria-roledescription="slide" aria-label="Discover the Pearl of Africa">
         <img 
@@ -69,7 +53,7 @@
         <img src="images/giraffe.webp" alt="Giraffe in Uganda" />
         <div class="caption">
           <h1>Giraffe Safari</h1>
-          <p class="small-text">Graceful giants roam free, experience wildlife up close and personal in their natural habitat.</p>
+          <p class="small-text">Graceful giants roam free — experience wildlife up close in their natural habitat.</p>
         </div>
       </div>
 
@@ -77,7 +61,7 @@
         <img src="images/nile-river.webp" alt="Source of the River Nile" />
         <div class="caption">
           <h1>Source of the Nile</h1>
-          <p class="small-text">Stand where the world’s greatest river begins, feel history and nature converge in awe.</p>
+          <p class="small-text">Stand where the world’s greatest river begins — history and nature converge in awe.</p>
         </div>
       </div>
 
@@ -85,7 +69,7 @@
         <img src="images/moutain-gorilla.webp" alt="Mountain gorilla" />
         <div class="caption">
           <h1>Mountain Gorilla</h1>
-          <p class="small-text">Encounter these majestic giants amidst Uganda’s misty mountain forests, unforgettable and humbling.</p>
+          <p class="small-text">Meet majestic gorillas in Uganda’s misty mountain forests — humbling and unforgettable.</p>
         </div>
       </div>
 
@@ -93,11 +77,12 @@
         <img src="images/birds-flying.webp" alt="Birds flying in Uganda" />
         <div class="caption">
           <h1>Birdlife Paradise</h1>
-          <p class="small-text">Feathered visitors bring the skies alive, an avian spectacle found only in Uganda’s vibrant ecosystems.</p>
+          <p class="small-text">An avian spectacle unfolds in Uganda’s vibrant skies — a paradise for bird lovers.</p>
         </div>
       </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" aria-labelledby="about-uganda">
       <h2 id="about-uganda">About Uganda</h2>
       <p>
@@ -107,56 +92,62 @@
       </p>
     </section>
 
+    <!-- Gallery -->
     <section class="gallery" aria-label="Wildlife and Cultural Highlights">
       <div class="gallery-item bloom">
         <img src="images/dances.webp" alt="Acholi tribe dance" />
         <p>
-          The Acholi tribe’s rhythmic dance traditions reflect unity and heritage. Dressed in vibrant attire and moving in perfect harmony,
-          dancers invite visitors to witness stories of history and community passed through generations.
+          The Acholi tribe’s rhythmic dance traditions reflect unity and heritage. Dressed in vibrant attire and moving in harmony,
+          dancers pass stories of community and culture through generations.
         </p>
       </div>
       <div class="gallery-item bloom">
         <img src="images/gorilla-young.webp" alt="Young mountain gorilla" />
         <p>
-          Witnessing a young mountain gorilla in Bwindi Forest is magical. Their gentle curiosity and calm presence remind us of our
-          responsibility to protect these endangered creatures in their natural habitat.
+          Witnessing a young mountain gorilla in Bwindi Forest is magical. Their gentle curiosity reminds us of our
+          responsibility to protect these endangered creatures.
         </p>
       </div>
       <div class="gallery-item bloom">
         <img src="images/golden_monkey2.webp" alt="Golden monkey" />
         <p>
-          Golden monkeys shimmer through Mgahinga’s lush bamboo forests. Their playful energy and golden fur captivate visitors and
-          highlight Uganda’s rich biodiversity at every turn.
+          Golden monkeys shimmer through Mgahinga’s bamboo forests. Their playful energy and golden fur captivate visitors
+          and highlight Uganda’s rich biodiversity.
         </p>
       </div>
     </section>
 
+    <!-- Social and Economic Section -->
     <section class="social" aria-labelledby="daily-life">
       <h2 id="daily-life">Daily Life & Economy</h2>
       <div class="social-grid">
         <div class="social-item bloom">
           <img src="images/farming.webp" alt="Farming in Uganda" />
           <p>
-            As the sun rises, Ugandan farmers begin their day in rich green fields. From coffee and bananas to maize, agriculture supports families and fuels the nation's rural economy with hope and resilience.
+            As the sun rises, Ugandan farmers begin their day. From coffee and bananas to maize, agriculture sustains families
+            and fuels the nation’s rural economy.
           </p>
         </div>
 
         <div class="social-item bloom">
-          <img src="images/market-economy-farmers.webp" alt="Market in Uganda" />
+          <img src="images/market-economy-farmers.webp" alt="Village market in Uganda" />
           <p>
-            Uganda’s village markets overflow with handmade baskets, fresh produce, and vibrant colors. These lively gatherings are more than trade, they are the heartbeats of communities, filled with stories and traditions.
+            Uganda’s village markets overflow with handmade baskets and fresh produce. These lively hubs are not just for trade —
+            they are the heartbeat of community life.
           </p>
         </div>
 
         <div class="social-item bloom">
           <img src="images/baboon-with-baby.webp" alt="Baboon with baby in Uganda" />
           <p>
-            In Uganda’s rural landscapes, wildlife and people live in harmony. A baboon caring for her baby reflects the tenderness of life and reminds us of our duty to protect nature’s beautiful balance.
+            In Uganda’s rural landscapes, wildlife and people coexist in harmony. A baboon with her baby reflects life’s tenderness
+            and our duty to preserve it.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- Weather Section -->
     <section class="weather" aria-labelledby="current-weather">
       <h2 id="current-weather">
         Current Weather 
