@@ -2,43 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Uganda Explorer Site</title>
-
-  <!-- Google Fonts -->
-
-
-
-  <!-- Your CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uganda Explorer Site - Birdlife Paradise</title>
+  <meta name="description" content="Explore Uganda's rich wildlife and landscapes with our Birdlife Paradise site." />
+  <meta name="author" content="Reagan Otema" />
   <link rel="stylesheet" href="styles/place.css" />
-  
-  <!-- Your JS -->
-  <script src="scripts/place.js" defer></script>
+  <!-- Google Fonts example -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <script src="scripts/main.js" defer></script>
 </head>
 
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <header role="banner">
-  <div class="header-ribbon">
-    <strong>Explore Uganda – The Pearl of Africa</strong>
-  </div>
-  <img src="images/logo-idaho.webp" alt="Discover Uganda Logo" class="logo" />
-  <nav>
-  <ul class="nav-list">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">W1</a></li> 
-    <li><a href="#">W2</a></li>
-    <li><a href="#">W3</a></li>
-    <li><a href="#">W4</a></li>
-    <li><a href="#">W5</a></li>
-    <li><a href="#">W6</a></li>
-    <li><a href="#">W7</a></li>
-  </ul>
-</nav>
+    <div class="header-ribbon">
+      <strong>Explore Uganda – The Pearl of Africa</strong>
+    </div>
+    <img src="images/logo-idaho.webp" alt="Discover Uganda Logo" class="logo" />
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">W1</a></li> 
+        <li><a href="#">W2</a></li>
+        <li><a href="#">W3</a></li>
+        <li><a href="#">W4</a></li>
+        <li><a href="#">W5</a></li>
+        <li><a href="#">W6</a></li>
+        <li><a href="#">W7</a></li>
+      </ul>
+    </nav>
+  </header>
 
-</header>
-
-
-  <main>
+  <main id="main">
     <!-- Hero Slideshow -->
     <section class="hero-slideshow" aria-label="Main slideshow">
       <div class="slide active" role="group" aria-roledescription="slide" aria-label="Discover the Pearl of Africa">
@@ -158,10 +154,11 @@
         <span id="weatherIconWide" class="weather-icon-wide" aria-hidden="true"></span>
       </h2>
       <div class="weather-details">
+        <!-- The static icon as fallback; JS will replace these dynamically -->
         <img src="images/weather.svg" alt="Weather icon" id="weatherIconMobile" class="weather-icon-mobile" />
-        <p>Temperature: <span id="temp"></span> °C</p>
-        <p>Wind Speed: <span id="windSpeed"></span> km/h</p>
-        <p>Wind Chill: <span id="chill"></span></p>
+        <p>Temperature: <span id="temp"></span>26 °C</p>
+        <p>Wind Speed: <span id="windSpeed"></span>12 km/h</p>
+        <p>Wind Chill: <span id="chill"></span>24 °C</p>
       </div>
     </section>
   </main>

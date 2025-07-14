@@ -6,17 +6,15 @@
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 /* Global Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-family);
   background-color: var(--main-bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
-
 
 /* Header */
 header {
@@ -227,6 +225,44 @@ footer {
 .bloom:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Animations */
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-item img,
+.social-item img,
+.slide img {
+  animation: fadeZoom 1s ease forwards;
+  opacity: 0; /* For animation */
+}
+
+/* Hover zoom for interactivity */
+.gallery-item:hover img,
+.social-item:hover img {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
+
+/* For slideshow transitions */
+.slide img {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide.active img {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Responsive Design */
