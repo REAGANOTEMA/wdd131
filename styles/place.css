@@ -3,19 +3,20 @@
   --main-bg-color: #f5f5f5;
   --accent-color: #006400;
   --text-color: #333;
-  /* Font family with fallback fonts */
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 /* Global Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-family);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--main-bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
+
 
 /* Header */
 header {
