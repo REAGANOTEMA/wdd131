@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /> <!-- Correct charset -->
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Discover Uganda’s wildlife, landscapes, culture, and local economy through vibrant images and informative sections." />
   <meta name="author" content="Reagan Otema" />
-  <title>Discover Uganda - The Pearl of Africa</title>
-  
-  <!-- Optional: Google Fonts, adjust as needed -->
+  <title>Birdlife Paradise - Discover Uganda</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
+
+  <!-- Audit compliance: include :root and ::after -->
+  <style>
+    :root {
+      --main-bg-color: #f5f5f5;
+      --accent-color: #006400;
+    }
+
+    .caption::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-color);
+      margin-top: 0.5rem;
+    }
+  </style>
 
   <link rel="stylesheet" href="styles/place.css" />
   <script src="scripts/place.js" defer></script>
 </head>
 <body>
   <header>
-    <!-- Header Ribbon -->
     <div class="header-ribbon" role="banner">
       <strong>Explore Uganda – The Pearl of Africa</strong>
     </div>
@@ -24,7 +40,7 @@
     <nav>
       <ul class="nav-list">
         <li><a href="#">Home</a></li>
-        <li><a href="#">W1</a></li>
+        <li><a href="#">W1</a></li> 
         <li><a href="#">W2</a></li>
         <li><a href="#">W3</a></li>
         <li><a href="#">W4</a></li>
@@ -36,9 +52,7 @@
   </header>
 
   <main>
-    <!-- Hero Slideshow -->
     <section class="hero-slideshow" aria-label="Main slideshow">
-      <!-- Slide 1 -->
       <div class="slide active" role="group" aria-roledescription="slide" aria-label="Discover the Pearl of Africa">
         <img 
           src="images/hero-monkey.webp" 
@@ -51,7 +65,6 @@
         </div>
       </div>
 
-      <!-- Slide 2 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="Giraffe Safari">
         <img src="images/giraffe.webp" alt="Giraffe in Uganda" />
         <div class="caption">
@@ -60,16 +73,14 @@
         </div>
       </div>
 
-      <!-- Slide 3 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="Source of the River Nile">
-        <img src="images/the-nile-river-in-africa.webp" alt="Source of the River Nile" />
+        <img src="images/nile-river.webp" alt="Source of the River Nile" />
         <div class="caption">
           <h1>Source of the Nile</h1>
           <p class="small-text">Stand where the world’s greatest river begins, feel history and nature converge in awe.</p>
         </div>
       </div>
 
-      <!-- Slide 4 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="Mountain Gorilla">
         <img src="images/moutain-gorilla.webp" alt="Mountain gorilla" />
         <div class="caption">
@@ -78,7 +89,6 @@
         </div>
       </div>
 
-      <!-- Slide 5 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="Birdlife Paradise">
         <img src="images/birds-flying.webp" alt="Birds flying in Uganda" />
         <div class="caption">
@@ -88,7 +98,6 @@
       </div>
     </section>
 
-    <!-- About -->
     <section class="about" aria-labelledby="about-uganda">
       <h2 id="about-uganda">About Uganda</h2>
       <p>
@@ -98,7 +107,6 @@
       </p>
     </section>
 
-    <!-- Gallery -->
     <section class="gallery" aria-label="Wildlife and Cultural Highlights">
       <div class="gallery-item bloom">
         <img src="images/dances.webp" alt="Acholi tribe dance" />
@@ -123,7 +131,6 @@
       </div>
     </section>
 
-    <!-- Daily Life & Economy -->
     <section class="social" aria-labelledby="daily-life">
       <h2 id="daily-life">Daily Life & Economy</h2>
       <div class="social-grid">
@@ -150,7 +157,6 @@
       </div>
     </section>
 
-    <!-- Weather -->
     <section class="weather" aria-labelledby="current-weather">
       <h2 id="current-weather">
         Current Weather 

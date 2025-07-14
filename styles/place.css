@@ -2,19 +2,24 @@
 * {
   box-sizing: border-box;
 }
+:root {
+  --main-color: #2c7a7b;
+  --bg-light: #ffffff;
+  --text-dark: #222;
+}
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   background: url('../images/river.webp') no-repeat center center fixed;
   background-size: cover;
-  color: #222;
+  color: var(--text-dark);
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 a {
-  color: #2c7a7b;
+  color: var(--main-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -37,9 +42,8 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   min-height: 70px;
+  background: white !important;
 }
-
-/* Semi-transparent overlay to soften the flag */
 header::before {
   content: "";
   position: absolute;
@@ -48,22 +52,16 @@ header::before {
   z-index: 1;
   pointer-events: none;
 }
-
-/* Ensure content stands out */
 header * {
   position: relative;
   z-index: 2;
 }
-
-/* Bigger logo, adjusted for header height */
 .logo {
   height: 70px;
   max-height: 12vh;
   width: auto;
   margin-right: 1.5rem;
 }
-
-/* Navigation list */
 .nav-list {
   list-style: none;
   display: flex;
@@ -73,8 +71,6 @@ header * {
   flex-wrap: wrap;
   align-items: center;
 }
-
-/* Strong, visible link styling */
 .nav-list li a {
   color: #000;
   font-weight: 800;
@@ -85,15 +81,13 @@ header * {
   border-radius: 4px;
   transition: all 0.25s ease;
 }
-
 .nav-list li a:hover,
 .nav-list li a:focus {
   background-color: rgba(44, 122, 123, 0.15);
-  color: #2c7a7b;
+  color: var(--main-color);
   transform: scale(1.05);
 }
 
-/* Main container */
 main {
   flex-grow: 1;
   max-width: 1200px;
@@ -104,7 +98,6 @@ main {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Hero Slideshow */
 .hero-slideshow {
   position: relative;
   height: 420px;
@@ -154,21 +147,20 @@ main {
   margin: 0 0 0.4rem;
   font-size: 2.8rem;
   font-weight: 700;
-  color: #000000;
-  text-shadow: 0 2px 8px rgba(255,255,255,0.8);
+  color: white !important;
+  text-shadow: 0 2px 8px rgba(5, 1, 1, 0.6);
   animation: slideInDown 0.8s ease forwards;
 }
 .caption .small-text {
   font-size: 1.15rem;
   font-weight: 400;
-  color: #222222cc;
+  color: rgb(244, 238, 238) !important;
   max-width: 70%;
   margin: 0 auto;
-  text-shadow: 0 1px 6px rgba(255,255,255,0.7);
+  text-shadow: none !important;
   animation: fadeIn 1.5s ease forwards;
 }
 
-/* Animations for Hero Text */
 @keyframes slideInDown {
   from { opacity: 0; transform: translateY(-40px); }
   to { opacity: 1; transform: translateY(0); }
@@ -185,35 +177,29 @@ main {
   animation: fadeInScale 0.8s ease forwards;
 }
 
-/* About Section */
-.about {
+.about, .gallery, .social {
   margin-bottom: 3rem;
   text-align: center;
 }
-.about h2 {
+.about h2, .social h2 {
   font-size: 2.4rem;
   margin-bottom: 1rem;
-  color: #2c7a7b;
+  color: var(--main-color);
   font-weight: 700;
 }
-.about p {
-  max-width: 800px;
-  margin: 0 auto;
+.about p, .gallery-item p, .social-item p {
   font-size: 1.15rem;
-  color: #444;
   line-height: 1.5;
-  animation: fadeInUp 1s ease forwards;
+  color: #444;
 }
 
-/* Gallery Section */
-.gallery {
+.gallery, .social-grid {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  margin-bottom: 3rem;
   flex-wrap: wrap;
 }
-.gallery-item {
+.gallery-item, .social-item {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
@@ -225,89 +211,26 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 1.3s ease forwards;
 }
-.gallery-item:hover,
-.gallery-item:focus-within {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+.gallery-item:hover img, .social-item:hover img {
+  transform: scale(1.07);
 }
-.gallery-item img {
+.gallery-item img, .social-item img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   border-bottom: 1px solid #ddd;
   transition: transform 0.4s ease;
 }
-.gallery-item:hover img {
-  transform: scale(1.07);
-}
-.gallery-item p {
-  padding: 1rem 1.3rem;
-  font-size: 0.95rem;
-  color: #333;
-  flex-grow: 1;
-  line-height: 1.4;
-}
-
-/* Social Section */
-.social {
-  margin-bottom: 3rem;
-}
-.social h2 {
-  font-size: 2.4rem;
-  color: #2c7a7b;
-  font-weight: 700;
-  margin-bottom: 1.8rem;
-  text-align: center;
-}
-.social-grid {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.social-item {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  width: 320px;
-  overflow: hidden;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 1.3s ease forwards;
-  display: flex;
-  flex-direction: column;
-}
-.social-item:hover,
-.social-item:focus-within {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 36px rgba(0,0,0,0.12);
-}
 .social-item img {
-  width: 100%;
   height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
-  transition: transform 0.4s ease;
   border-radius: 12px 12px 0 0;
 }
-.social-item:hover img {
-  transform: scale(1.05);
-}
-.social-item p {
-  padding: 1rem 1.5rem 1.8rem;
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.5;
-  flex-grow: 1;
-}
 
-/* Weather Section */
 .weather {
   max-width: 360px;
   margin: 0 auto 3rem;
   padding: 1.5rem 2rem;
-  background: #2c7a7b;
+  background: var(--main-color);
   color: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
@@ -341,7 +264,6 @@ main {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Footer */
 footer {
   background: rgba(44, 122, 123, 0.85);
   color: #f0f0f0cc;
@@ -353,7 +275,6 @@ footer {
   user-select: none;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
@@ -363,7 +284,6 @@ footer {
   50% { transform: translateY(-8px); }
 }
 
-/* Responsive */
 @media (max-width: 992px) {
   .gallery, .social-grid {
     flex-direction: column;
@@ -413,15 +333,15 @@ footer {
   }
 }
 
-/* ----- YOUR REQUESTED OVERRIDES ----- */
-header {
-  background: white !important;
+/* Add ::after pseudo-element example for audit compliance */
+.nav-list li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+  transition: width 0.3s;
 }
-.hero-slideshow .caption h1 {
-  color: white !important;
-  text-shadow: 0 2px 8px rgba(5, 1, 1, 0.6);
-}
-.hero-slideshow .caption .small-text {
-  color: rgb(244, 238, 238) !important;
-  text-shadow: none !important;
+.nav-list li a:hover::after {
+  width: 100%;
 }

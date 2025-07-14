@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Set current year and last modified date
+  // Set current year
   const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
+  // Set last modified date formatted as "Month day, Year"
   const modifiedEl = document.getElementById("modified");
   if (modifiedEl) {
     const modifiedDate = new Date(document.lastModified);
     modifiedEl.textContent = modifiedDate.toLocaleDateString(undefined, {
       year: "numeric",
       month: "long",
-      day: "numeric"
+      day: "numeric",
     });
   }
 
@@ -40,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       windSpeed: 12,
       chill: 24,
       conditions: "Sunny",
-      icon: "☀️"
+      icon: "☀️",
     };
 
     const tempEl = document.getElementById("temp");
@@ -69,10 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ".fade-in, .fade-in-up, .slide-in-down"
   );
 
-  if (animatedElements.length && "IntersectionObserver" in window) {
+  if (animatedElements.length > 0 && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
       (entries, obs) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animated");
             obs.unobserve(entry.target);
@@ -82,6 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
       { threshold: 0.2 }
     );
 
-    animatedElements.forEach(el => observer.observe(el));
+    animatedElements.forEach((el) => observer.observe(el));
   }
 });
