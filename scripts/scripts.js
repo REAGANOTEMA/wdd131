@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        observer.unobserve(entry.target); // Stop observing once visible
       }
     });
   };
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver(revealOnScroll, observerOptions);
 
   sections.forEach(section => {
-    section.classList.add('hidden');
+    section.classList.add('hidden'); // Ensure hidden initially
     observer.observe(section);
   });
 
@@ -29,8 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Wireframe images hover & keyboard focus effect
   const wireframeImages = document.querySelectorAll('.wireframe-images img');
   wireframeImages.forEach(img => {
-    // Make images keyboard focusable if not already
-    if (!img.hasAttribute('tabindex')) img.setAttribute('tabindex', '0');
+    // Ensure images are keyboard focusable
+    if (!img.hasAttribute('tabindex')) {
+      img.setAttribute('tabindex', '0');
+    }
 
     const addActive = () => img.classList.add('active');
     const removeActive = () => img.classList.remove('active');
