@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
       imageUrl: "https://cdn.example.com/london-england-temple.jpg",
       alt: "London England Temple"
     },
-    // Added 3 more to meet requirements:
     {
       name: "Rome Italy Temple",
       location: "Rome, Italy",
@@ -142,7 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     figure.appendChild(figcaption);
 
-    // Add 3D tilt effect on each figure
     figure.addEventListener("mousemove", (e) => {
       const rect = figure.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -204,7 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
-      // Close menu if open (mobile)
       if (nav.classList.contains("open")) {
         nav.classList.remove("open");
         menuButton.setAttribute("aria-expanded", "false");
@@ -234,7 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.2 }
   );
 
-  // Add hidden class and observe newly created temple cards
   function observeCards() {
     document.querySelectorAll(".temple-card").forEach(card => {
       card.classList.add("hidden");
@@ -242,12 +238,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Observe after render
   const observerInterval = setInterval(() => {
     if (document.querySelectorAll(".temple-card").length) {
       observeCards();
       clearInterval(observerInterval);
     }
   }, 100);
-
 });

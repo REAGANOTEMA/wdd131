@@ -219,7 +219,7 @@ header h1 {
   font-family: 'Merriweather', serif;
   font-weight: 700;
   font-size: 3.2rem;
-  color: #b8860b; /* Dark Yellow */
+  color: #b8860b;
   letter-spacing: 0.05em;
   transform-style: preserve-3d;
   animation: subtle3dSpin 6s ease-in-out infinite;
