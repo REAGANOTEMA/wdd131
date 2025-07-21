@@ -1,4 +1,6 @@
-/* Reset & base */
+/* ----------------------
+   Global Reset & Base
+------------------------ */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -7,21 +9,23 @@ body {
   margin: 0;
   padding: 2rem 1rem;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   font-family: 'Open Sans', sans-serif;
-  background: #fefefe;
+  background-color: #fefefe;
   color: #333;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ----------------------
+   Header Styling
+------------------------ */
 header {
   background: linear-gradient(135deg, #1A237E, #D32F2F);
   color: #fff;
+  padding: 2rem 3rem;
   border-radius: 12px;
-  padding: 2rem 3rem 2rem 3rem;
   box-shadow: 0 8px 15px rgba(26, 35, 126, 0.3);
   position: relative;
   overflow: hidden;
@@ -29,43 +33,49 @@ header {
   animation: fadeInDown 1s ease forwards;
 }
 
-header::before {
+/* Decorative bubbles */
+header::before,
+header::after {
   content: '';
   position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: pulse infinite ease-in-out;
+}
+
+header::before {
   top: -60px;
   right: -60px;
   width: 150px;
   height: 150px;
   background: #FBC02D;
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: pulse 6s infinite ease-in-out;
+  animation-duration: 6s;
 }
 
 header::after {
-  content: '';
-  position: absolute;
   bottom: -40px;
   left: -40px;
   width: 120px;
   height: 120px;
   background: #E91E63;
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: pulse 5s infinite ease-in-out alternate;
+  animation-duration: 5s;
+  animation-direction: alternate;
 }
 
+/* ----------------------
+   Logo + Subtext
+------------------------ */
 .logo {
   font-family: 'Merriweather', serif;
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 0.2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.2rem;
 }
 
 .logo img {
@@ -84,13 +94,18 @@ header::after {
 header p {
   font-size: 1.1rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
   text-align: center;
-  margin-top: 0.2rem;
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------
+   Headings & Sections
+------------------------ */
+h1, h2 {
+  font-family: 'Merriweather', serif;
 }
 
 h2 {
-  font-family: 'Merriweather', serif;
   color: #1A237E;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
@@ -109,26 +124,19 @@ section {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1.2s ease forwards;
-  animation-fill-mode: forwards;
 }
 
-/* Delay animations for sections */
-section:nth-child(2) {
-  animation-delay: 0.2s;
-}
-section:nth-child(3) {
-  animation-delay: 0.4s;
-}
-section:nth-child(4) {
-  animation-delay: 0.6s;
-}
-section:nth-child(5) {
-  animation-delay: 0.8s;
-}
-section:nth-child(6) {
-  animation-delay: 1s;
-}
+/* Animate each section with delay */
+section:nth-of-type(1) { animation-delay: 0.2s; }
+section:nth-of-type(2) { animation-delay: 0.4s; }
+section:nth-of-type(3) { animation-delay: 0.6s; }
+section:nth-of-type(4) { animation-delay: 0.8s; }
+section:nth-of-type(5) { animation-delay: 1s; }
+section:nth-of-type(6) { animation-delay: 1.2s; }
 
+/* ----------------------
+   Lists
+------------------------ */
 ul {
   list-style-type: disc;
   margin-left: 1.5rem;
@@ -139,6 +147,9 @@ ul li {
   font-size: 1.1rem;
 }
 
+/* ----------------------
+   Wireframe Section
+------------------------ */
 .wireframe {
   background: #FBC02D;
   border-radius: 12px;
@@ -146,10 +157,10 @@ ul li {
   box-shadow: 0 4px 12px rgba(251, 192, 45, 0.5);
   color: #1A237E;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  user-select: none;
   font-size: 1.1rem;
   line-height: 1.4;
+  letter-spacing: 0.04em;
+  user-select: none;
 }
 
 .wireframe-images {
@@ -175,6 +186,9 @@ ul li {
   box-shadow: 0 8px 20px rgba(251, 192, 45, 0.8);
 }
 
+/* ----------------------
+   Footer
+------------------------ */
 footer {
   text-align: center;
   font-size: 0.9rem;
@@ -184,6 +198,9 @@ footer {
   border-top: 1px solid #ddd;
 }
 
+/* ----------------------
+   Links
+------------------------ */
 a {
   color: #D32F2F;
   text-decoration: none;
@@ -196,81 +213,62 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Animations */
+/* ----------------------
+   Animations
+------------------------ */
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.45;
-  }
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50%      { transform: scale(1.2); opacity: 0.45; }
 }
 
 @keyframes logoPulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 3px #D32F2F);
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 10px #E91E63);
-    transform: scale(1.05);
-  }
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px #D32F2F); }
+  50%      { transform: scale(1.05); filter: drop-shadow(0 0 10px #E91E63); }
 }
 
 @keyframes floatUpDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
 }
 
-/* Responsive */
+/* ----------------------
+   Responsive Styles
+------------------------ */
 @media (max-width: 600px) {
   header {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-inline: 1.5rem;
   }
+
   .logo {
     font-size: 1.8rem;
   }
+
   .logo img {
     height: 45px;
   }
+
   h2 {
     font-size: 1.5rem;
   }
+
   .wireframe {
     font-size: 1rem;
   }
+
   .wireframe-images {
     gap: 1rem;
   }
+
   .wireframe-images img {
     max-width: 100%;
   }
