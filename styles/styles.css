@@ -6,7 +6,7 @@
 }
 
 body {
-  margin: 0 auto; /* margin shorthand with auto left/right centers block only if width is set */
+  margin: 0 auto;              /* Combined margin to center */
   padding: 2rem 1rem;
   max-width: 900px;
   font-family: 'Open Sans', sans-serif;
@@ -85,7 +85,7 @@ header::after {
   filter: drop-shadow(0 0 3px #D32F2F);
   animation: logoPulse 4s ease-in-out infinite;
   transition: filter 0.3s ease;
-  cursor: pointer; /* Signal interactivity */
+  cursor: pointer; /* Add pointer to signal interactivity */
 }
 
 .logo img:hover,
@@ -99,7 +99,7 @@ header p {
   font-weight: 500;
   text-align: center;
   letter-spacing: 0.02em;
-  margin-top: 0; /* Remove default top margin */
+  margin-top: 0; /* Prevent default margin pushing */
 }
 
 /* ----------------------
@@ -107,7 +107,7 @@ header p {
 ------------------------ */
 h1, h2 {
   font-family: 'Merriweather', serif;
-  margin-top: 0; /* Remove extra top margin */
+  margin-top: 0; /* Ensure no extra margin on top */
 }
 
 h2 {
@@ -126,7 +126,7 @@ h2:focus {
   outline: none;
 }
 
-/* Focus style for h2 with keyboard navigation */
+/* Focus style for h2 headings with keyboard navigation */
 h2.focused,
 h2:focus-visible {
   color: #D32F2F !important;
