@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Reagan Otema" />
   <meta name="description" content="A strategic site plan for SkillSprint Uganda — a youth-centered digital learning platform project for WDD 131." />
   <title>SkillSprint Uganda | Site Plan</title>
@@ -14,34 +14,71 @@
   <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-
   <!-- ======= Header ======= -->
   <header>
     <div class="logo" aria-label="SkillSprint Uganda logo">
       <img src="images/logo1.png" alt="SkillSprint Uganda Logo" />
     </div>
     <p class="subtitle">Website Planning Document by Reagan Otema</p>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
+      <a href="#site-name">Site Name</a>
+      <a href="#purpose">Purpose</a>
+      <a href="#scenarios">User Scenarios</a>
+      <a href="#colors">Color Scheme</a>
+      <a href="#typography">Typography</a>
+      <a href="#wireframes">Wireframes</a>
+      <a href="#form">Bootcamp Registration</a>
+    </nav>
+
+    <!-- Hamburger Button -->
+    <button
+      class="hamburger"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      type="button"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Mobile Navigation -->
+    <nav
+      id="mobile-menu"
+      class="mobile-nav"
+      role="navigation"
+      aria-label="Mobile Navigation"
+      hidden
+    >
+      <a href="#site-name">Site Name</a>
+      <a href="#purpose">Purpose</a>
+      <a href="#scenarios">User Scenarios</a>
+      <a href="#colors">Color Scheme</a>
+      <a href="#typography">Typography</a>
+      <a href="#wireframes">Wireframes</a>
+      <a href="#form">Bootcamp Registration</a>
+    </nav>
   </header>
 
   <!-- ======= Main Content ======= -->
   <main>
     <h1>SkillSprint Uganda – Strategic Website Planning</h1>
 
-    <!-- Site Name -->
-    <section>
+    <section id="site-name">
       <h2>Site Name</h2>
       <p><strong>SkillSprint Uganda</strong> — A name that represents a national initiative to fast-track practical digital skills development for young Ugandans.</p>
       <p><strong>Optional Domain:</strong> skillsprint.ug</p>
     </section>
 
-    <!-- Purpose -->
-    <section>
+    <section id="purpose">
       <h2>Purpose</h2>
       <p>The website will serve as a digital hub for learning, mentorship, and career growth in Uganda. It will offer bootcamp registration, tutorials in tech and freelancing, and access to a support community of mentors and learners.</p>
     </section>
 
-    <!-- Scenarios -->
-    <section>
+    <section id="scenarios">
       <h2>User Scenarios</h2>
       <ul>
         <li>“Where can I register for the next skill training bootcamp near Kampala?”</li>
@@ -49,8 +86,7 @@
       </ul>
     </section>
 
-    <!-- Color Scheme -->
-    <section>
+    <section id="colors">
       <h2>Color Scheme</h2>
       <p>The chosen palette emphasizes energy, trust, and accessibility:</p>
       <ul>
@@ -61,8 +97,7 @@
       </ul>
     </section>
 
-    <!-- Typography -->
-    <section>
+    <section id="typography">
       <h2>Typography</h2>
       <ul>
         <li><strong>Merriweather:</strong> Headlines and section titles — gives the site a trustworthy and bold feel.</li>
@@ -70,8 +105,7 @@
       </ul>
     </section>
 
-    <!-- Wireframes -->
-    <section>
+    <section id="wireframes">
       <h2>Wireframes</h2>
       <p>Visual structure of the home page layout in both mobile and desktop formats:</p>
 
@@ -81,17 +115,85 @@
 
         <h3>Desktop Layout</h3>
         <p>Top horizontal nav (logo-left, menu-center, auth-right), banner with headline and action button, content grid (3 columns), and full footer with details.</p>
-        
+
         <div class="wireframe-images">
           <img src="images/wireframe-mobile.png" alt="Mobile wireframe layout" />
           <img src="images/wireframe-desktop.png" alt="Desktop wireframe layout" />
         </div>
       </div>
     </section>
+
+    <section id="form">
+      <h2>Bootcamp Registration Form</h2>
+      <form method="get" action="review.html">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+
+        <fieldset>
+          <legend>Preferred Bootcamp Location:</legend>
+
+          <label for="loc1">
+            <input type="radio" id="loc1" name="location" value="Kampala" required />
+            Kampala
+          </label>
+
+          <label for="loc2">
+            <input type="radio" id="loc2" name="location" value="Entebbe" />
+            Entebbe
+          </label>
+
+          <label for="loc3">
+            <input type="radio" id="loc3" name="location" value="Jinja" />
+            Jinja
+          </label>
+
+          <label for="loc4">
+            <input type="radio" id="loc4" name="location" value="Mbale" />
+            Mbale
+          </label>
+
+          <label for="loc5">
+            <input type="radio" id="loc5" name="location" value="Mbarara" />
+            Mbarara
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Areas of Interest (Select all that apply):</legend>
+
+          <label for="interest1">
+            <input type="checkbox" id="interest1" name="interests" value="Web Development" />
+            Web Development
+          </label>
+
+          <label for="interest2">
+            <input type="checkbox" id="interest2" name="interests" value="Freelancing" />
+            Freelancing
+          </label>
+
+          <label for="interest3">
+            <input type="checkbox" id="interest3" name="interests" value="Graphic Design" />
+            Graphic Design
+          </label>
+
+          <label for="interest4">
+            <input type="checkbox" id="interest4" name="interests" value="Digital Marketing" />
+            Digital Marketing
+          </label>
+        </fieldset>
+
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Your comments here..."></textarea>
+
+        <input type="submit" value="Submit" />
+      </form>
+    </section>
   </main>
 
   <!-- ======= Footer ======= -->
-   <!-- ======= Footer ======= -->
   <footer>
     <p>Contact: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a> | Phone: +256 772 514889</p>
   </footer>
@@ -99,4 +201,3 @@
   <script src="scripts/scripts.js" defer></script>
 </body>
 </html>
-

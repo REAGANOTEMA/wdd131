@@ -6,10 +6,9 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;              /* Combined margin to center */
   padding: 2rem 1rem;
   max-width: 900px;
-  margin-inline: auto;
   font-family: 'Open Sans', sans-serif;
   background-color: #fefefe;
   color: #333;
@@ -41,6 +40,7 @@ header::after {
   border-radius: 50%;
   opacity: 0.3;
   animation: pulse infinite ease-in-out;
+  pointer-events: none; /* Prevent bubbles from capturing mouse events */
 }
 
 header::before {
@@ -85,10 +85,13 @@ header::after {
   filter: drop-shadow(0 0 3px #D32F2F);
   animation: logoPulse 4s ease-in-out infinite;
   transition: filter 0.3s ease;
+  cursor: pointer; /* Add pointer to signal interactivity */
 }
 
-.logo img:hover {
+.logo img:hover,
+.logo img:focus {
   filter: drop-shadow(0 0 10px #E91E63);
+  outline: none;
 }
 
 header p {
@@ -96,6 +99,7 @@ header p {
   font-weight: 500;
   text-align: center;
   letter-spacing: 0.02em;
+  margin-top: 0; /* Prevent default margin pushing */
 }
 
 /* ----------------------
@@ -103,6 +107,7 @@ header p {
 ------------------------ */
 h1, h2 {
   font-family: 'Merriweather', serif;
+  margin-top: 0; /* Ensure no extra margin on top */
 }
 
 h2 {
@@ -115,8 +120,19 @@ h2 {
   cursor: default;
 }
 
-h2:hover {
+h2:hover,
+h2:focus {
   color: #D32F2F;
+  outline: none;
+}
+
+/* Focus style for h2 headings with keyboard navigation */
+h2.focused,
+h2:focus-visible {
+  color: #D32F2F !important;
+  outline: 2px solid #D32F2F;
+  outline-offset: 4px;
+  transition: color 0.3s ease;
 }
 
 section {
@@ -140,6 +156,7 @@ section:nth-of-type(6) { animation-delay: 1.2s; }
 ul {
   list-style-type: disc;
   margin-left: 1.5rem;
+  padding-left: 0;
 }
 
 ul li {
@@ -181,9 +198,13 @@ ul li {
   cursor: default;
 }
 
-.wireframe-images img:hover {
+/* Hover/focus style for wireframe images */
+.wireframe-images img.active,
+.wireframe-images img:hover,
+.wireframe-images img:focus {
   transform: scale(1.05) rotate(1deg);
   box-shadow: 0 8px 20px rgba(251, 192, 45, 0.8);
+  outline: none;
 }
 
 /* ----------------------
@@ -208,9 +229,11 @@ a {
   transition: color 0.3s ease;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: #E91E63;
   text-decoration: underline;
+  outline: none;
 }
 
 /* ----------------------
