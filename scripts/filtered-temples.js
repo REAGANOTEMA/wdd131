@@ -1,15 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ========== Hamburger Menu (Accessible & Responsive) ==========
+  // ========== Hamburger Menu ==========
   const menuButton = document.getElementById("menu");
   const nav = document.querySelector("nav.navigation");
 
   if (menuButton && nav) {
-    menuButton.setAttribute("aria-controls", "primary-nav");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open menu");
-    menuButton.setAttribute("role", "button");
-    menuButton.setAttribute("tabindex", "0");
-
     const toggleMenu = () => {
       const isOpen = nav.classList.toggle("open");
       menuButton.setAttribute("aria-expanded", String(isOpen));
@@ -26,21 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ========== Footer: Dynamic Year & Last Modified ==========
+  // ========== Footer ==========
   const yearSpan = document.getElementById("year");
   const modifiedSpan = document.getElementById("lastModified");
-
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
   if (modifiedSpan) modifiedSpan.textContent = document.lastModified;
 
-  // ========== Typewriter Contact Info ==========
+  // ========== Typewriter Contact ==========
   const contact = document.getElementById("contact-info");
-
   if (contact) {
     const contactText = "Contact: +256 772 514 889 | ";
     const email = "rotema@byupathway.edu";
     const fullText = contactText + email;
-
     let i = 0;
     const span = document.createElement("span");
     contact.appendChild(span);
@@ -65,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     typeWriter();
   }
 
-  // ========== Temple Data Array ==========
+  // ========== Temple Data ==========
   const temples = [
     {
       name: "Salt Lake Temple",
@@ -119,9 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ========== DOM Elements ==========
   const gallery = document.getElementById("temple-cards");
-  const navLinks = document.querySelectorAll("nav a[data-filter]");
 
-  // ========== Helper: Create Temple Card ==========
+  // ========== Create Card ==========
   function createTempleCard(temple) {
     const figure = document.createElement("figure");
     figure.className = "temple-card";
@@ -141,14 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     figure.appendChild(figcaption);
 
+    // Hover effect
     figure.addEventListener("mousemove", (e) => {
       const rect = figure.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-
       const rotateX = ((y - rect.height / 2) / rect.height) * -15;
       const rotateY = ((x - rect.width / 2) / rect.width) * 15;
-
       figure.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.07)`;
     });
 
@@ -178,10 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
       case "small":
         filteredTemples = temples.filter(t => t.area < 10000);
         break;
-      case "all":
-      default:
-        filteredTemples = temples;
-        break;
     }
 
     if (filteredTemples.length === 0) {
@@ -191,36 +176,29 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    filteredTemples.forEach(temple => {
-      const card = createTempleCard(temple);
-      gallery.appendChild(card);
-    });
+    filteredTemples.forEach(t => gallery.appendChild(createTempleCard(t)));
+    observeCards();
   }
 
-  // ========== Navigation Filter Clicks ==========
-  navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
+  // ========== Button Filters ==========
+  const filters = {
+    old: document.getElementById("old"),
+    new: document.getElementById("new"),
+    large: document.getElementById("large"),
+    small: document.getElementById("small"),
+    home: document.getElementById("home")
+  };
 
-      if (nav.classList.contains("open")) {
-        nav.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.textContent = "☰";
-        menuButton.setAttribute("aria-label", "Open menu");
-      }
-
-      const filter = link.getAttribute("data-filter");
-      renderTemples(filter);
-    });
+  Object.entries(filters).forEach(([key, btn]) => {
+    if (btn) {
+      btn.addEventListener("click", () => renderTemples(key === "home" ? "all" : key));
+    }
   });
 
-  // ========== Initial Render ==========
-  renderTemples();
-
-  // ========== Scroll Reveal for cards ==========
+  // ========== Scroll Reveal ==========
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
           entry.target.classList.remove("hidden");
@@ -238,10 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const observerInterval = setInterval(() => {
-    if (document.querySelectorAll(".temple-card").length) {
-      observeCards();
-      clearInterval(observerInterval);
-    }
-  }, 100);
+  // ========== Initial Load ==========
+  renderTemples();
 });

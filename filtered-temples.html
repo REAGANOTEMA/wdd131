@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A picture album showcasing the beauty and spiritual significance of temples.">
-  <meta name="author" content="Reagan Otema">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A picture album showcasing the beauty and spiritual significance of temples." />
+  <meta name="author" content="Reagan Otema" />
   <title>Heavenly Glory – Temple Album</title>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles/temples.css">
-  <link rel="stylesheet" href="styles/temples-large.css" media="screen and (min-width: 768px)">
+  <link rel="stylesheet" href="styles/temples.css" />
+  <link rel="stylesheet" href="styles/temples-large.css" media="screen and (min-width: 768px)" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- JavaScript -->
   <script src="scripts/temples.js" defer></script>
@@ -28,7 +28,8 @@
       aria-expanded="false"
       aria-label="Open menu"
       aria-controls="primary-nav"
-      role="button">
+      role="button"
+    >
       ☰
     </button>
     <nav class="navigation" id="primary-nav" aria-label="Main navigation">
@@ -42,70 +43,82 @@
 
   <main id="main-content">
     <h2>Temples: Gateways to the Divine</h2>
-    <div class="gallery" id="temple-cards" aria-live="polite">
-      <!-- JS will inject temple cards here -->
-    </div>
 
+    <!-- Filter Buttons -->
+    <section id="filters" aria-label="Temple Filters">
+      <button id="old">Old</button>
+      <button id="new">New</button>
+      <button id="large">Large</button>
+      <button id="small">Small</button>
+      <button id="home">Home</button>
+    </section>
+
+    <!-- Temple Cards Injected Here -->
+    <section class="gallery" id="temple-cards" aria-live="polite">
+      <!-- JavaScript will inject cards here -->
+    </section>
+
+    <!-- Static Image Gallery -->
     <figure>
-      <img src="images/nj-coming.jpeg" alt="New Jerusalem Temple" loading="lazy">
+      <img src="images/Lds-temple8.jpeg" alt="Salt Lake Temple" loading="lazy" />
       <figcaption>
-        The vision of the New Jerusalem, a holy temple city descending from heaven — a symbol of divine presence and eternal worship. (Revelation 21:2)
+        The Salt Lake Temple, a symbol of faith and covenant-making, stands as an iconic LDS temple in Utah.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/jesus.jpg" alt="Second Coming and Temple" loading="lazy">
+      <img src="images/new-jerusalem.JPG" alt="Nauvoo Illinois Temple" loading="lazy" />
       <figcaption>
-        The Second Coming heralds the fulfillment of prophecy and the establishment of God’s eternal kingdom centered around His temple. (Matthew 24:30)
+        The Nauvoo Illinois Temple, rebuilt to honor early Church history and pioneer heritage.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/judgement.jpeg" alt="Judgment and the Temple" loading="lazy">
+      <img src="images/Lds-temple7.jpeg" alt="Rome Italy Temple" loading="lazy" />
       <figcaption>
-        Before the judgment seat of Christ, the temple remains a sacred place reflecting justice and mercy. (2 Corinthians 5:10)
+        The Rome Italy Temple, the first LDS temple on the European continent, symbolizing global growth.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/book.jpeg" alt="Book of Life and Temples" loading="lazy">
+      <img src="images/Lds-temple6.jpeg" alt="Tokyo Japan Temple" loading="lazy" />
       <figcaption>
-        The Book of Life, held in divine record, is connected to the faithful who worship in God’s temple. (Revelation 20:12)
+        The Tokyo Japan Temple, a beautiful temple serving members in Asia since 1980.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/new-jerusalem.JPG" alt="Gates of the Heavenly Temple" loading="lazy">
+      <img src="images/Lds-temple5.jpeg" alt="Bern Switzerland Temple" loading="lazy" />
       <figcaption>
-        The gates of the heavenly temple remain open day and night, inviting all to enter into God’s presence. (Revelation 21:25)
+        The Bern Switzerland Temple, the first LDS temple built in Europe.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/tree.jpeg" alt="Tree of Life at the Temple" loading="lazy">
+      <img src="images/Lds-temple1.jpg" alt="Kirtland Ohio Temple" loading="lazy" />
       <figcaption>
-        The Tree of Life by the river in the temple symbolizes healing and eternal life for the nations. (Revelation 22:2)
+        The Kirtland Ohio Temple, the first temple built by the early Latter-day Saints.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/golden-wall.jpeg" alt="The Lamb’s Throne in the Temple" loading="lazy">
+      <img src="images/Lds-temple2.jpeg" alt="Payson Utah Temple" loading="lazy" />
       <figcaption>
-        The Lamb on the throne within the temple nourishes the faithful and reigns in glory. (Revelation 7:17)
+        The Payson Utah Temple, dedicated in 2015, serves many members in central Utah.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/christ1.jpeg" alt="Crown of Life in the Temple" loading="lazy">
+      <img src="images/Lds-temple3.jpeg" alt="Bountiful Utah Temple" loading="lazy" />
       <figcaption>
-        Enduring temptation faithfully in the temple brings the crown of life and blessing. (James 1:12)
+        The Bountiful Utah Temple, a majestic temple serving northern Utah since 1995.
       </figcaption>
     </figure>
 
     <figure>
-      <img src="images/glassy-sea.jpeg" alt="River of Life flowing from the Temple" loading="lazy">
+      <img src="images/Lds-temple4.jpeg" alt="Phoenix Arizona Temple" loading="lazy" />
       <figcaption>
-        A pure river of life flows from the temple throne, symbolizing spiritual renewal and grace. (Revelation 22:1)
+        The Phoenix Arizona Temple, an important temple for Latter-day Saints in the southwest.
       </figcaption>
     </figure>
   </main>
