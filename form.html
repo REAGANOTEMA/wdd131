@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Reagan Otema" />
   <meta name="description" content="A strategic site plan for SkillSprint Uganda — a youth-centered digital learning platform project for WDD 131." />
   <title>SkillSprint Uganda | Site Plan</title>
 
   <!-- ✅ Google Fonts optimized loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
 
 <body>
@@ -72,7 +72,7 @@
 
     <section id="site-name">
       <h2>Site Name</h2>
-      <p><strong>SkillSprint Uganda</strong> A name that represents a national initiative to fast track practical digital skills development for young Ugandans.</p>
+      <p><strong>SkillSprint Uganda</strong> — a name that represents a national initiative to fast-track practical digital skills development for young Ugandans.</p>
       <p><strong>Optional Domain:</strong> skillsprint.ug</p>
     </section>
 
@@ -103,8 +103,8 @@
     <section id="typography">
       <h2>Typography</h2>
       <ul>
-        <li><strong>Merriweather:</strong> Headlines and section titles gives the site a trustworthy and bold feel.</li>
-        <li><strong>Open Sans:</strong> Paragraphs and UI text modern, clean, and readable.</li>
+        <li><strong>Merriweather:</strong> Headlines and section titles for a trustworthy and bold feel.</li>
+        <li><strong>Open Sans:</strong> Paragraphs and UI text — modern, clean, and readable.</li>
       </ul>
     </section>
 
@@ -130,36 +130,36 @@
       <h2>Bootcamp Registration Form</h2>
       <form method="get" action="review.html">
         <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" required />
+        <input type="text" id="fullname" name="fullname" required aria-required="true" />
 
         <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required />
+        <input type="date" id="dob" name="dob" required aria-required="true" />
 
         <fieldset>
           <legend>Preferred Bootcamp Location:</legend>
 
-          <label for="loc1">
-            <input type="radio" id="loc1" name="location" value="Kampala" required />
+          <label>
+            <input type="radio" name="location" value="Kampala" required aria-required="true" />
             Kampala
           </label>
 
-          <label for="loc2">
-            <input type="radio" id="loc2" name="location" value="Entebbe" />
+          <label>
+            <input type="radio" name="location" value="Entebbe" />
             Entebbe
           </label>
 
-          <label for="loc3">
-            <input type="radio" id="loc3" name="location" value="Jinja" />
+          <label>
+            <input type="radio" name="location" value="Jinja" />
             Jinja
           </label>
 
-          <label for="loc4">
-            <input type="radio" id="loc4" name="location" value="Mbale" />
+          <label>
+            <input type="radio" name="location" value="Mbale" />
             Mbale
           </label>
 
-          <label for="loc5">
-            <input type="radio" id="loc5" name="location" value="Mbarara" />
+          <label>
+            <input type="radio" name="location" value="Mbarara" />
             Mbarara
           </label>
         </fieldset>
@@ -167,23 +167,23 @@
         <fieldset>
           <legend>Areas of Interest (Select all that apply):</legend>
 
-          <label for="interest1">
-            <input type="checkbox" id="interest1" name="interests" value="Web Development" />
+          <label>
+            <input type="checkbox" name="interests[]" value="Web Development" />
             Web Development
           </label>
 
-          <label for="interest2">
-            <input type="checkbox" id="interest2" name="interests" value="Freelancing" />
+          <label>
+            <input type="checkbox" name="interests[]" value="Freelancing" />
             Freelancing
           </label>
 
-          <label for="interest3">
-            <input type="checkbox" id="interest3" name="interests" value="Graphic Design" />
+          <label>
+            <input type="checkbox" name="interests[]" value="Graphic Design" />
             Graphic Design
           </label>
 
-          <label for="interest4">
-            <input type="checkbox" id="interest4" name="interests" value="Digital Marketing" />
+          <label>
+            <input type="checkbox" name="interests[]" value="Digital Marketing" />
             Digital Marketing
           </label>
         </fieldset>
@@ -192,22 +192,25 @@
         <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Your comments here..."></textarea>
 
         <label for="bootcamp-time">Preferred Bootcamp Time:</label>
-        <select id="bootcamp-time" name="bootcamp-time" required>
+        <select id="bootcamp-time" name="bootcamp-time" required aria-required="true">
           <option value="" disabled selected>Select a time</option>
           <option value="morning">Morning</option>
           <option value="afternoon">Afternoon</option>
           <option value="evening">Evening</option>
         </select>
-        <input type="submit" value = "Submit" />
+
+        <input type="submit" value="Submit" />
       </form>
     </section>
   </main>
 
   <!-- ======= Footer ======= -->
+   ...
   <footer>
     <p>Contact: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a> | Phone: +256 772 514889</p>
   </footer>
 
-  <script src="scripts/scripts.js" defer></script>
+  <!-- Link the new JS file -->
+  <script src="scripts/siteplan.js" defer></script>
 </body>
 </html>
