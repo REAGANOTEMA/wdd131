@@ -1,4 +1,4 @@
-// Dynamic heading animation on scroll
+// Animate headings on scroll
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".animate-heading").forEach((el) => {
     const top = el.getBoundingClientRect().top;
@@ -9,31 +9,43 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Contact form handler with localStorage
-const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
+// Hamburger menu toggle
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav-links");
 
-if (form) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  }
 
-    if (name && email && message) {
-      const formData = {
-        name,
-        email,
-        message,
-        timestamp: new Date().toISOString()
-      };
-      let stored = JSON.parse(localStorage.getItem("messages")) || [];
-      stored.push(formData);
-      localStorage.setItem("messages", JSON.stringify(stored));
-      status.textContent = `Thanks ${name}, your message was saved!`;
-      form.reset();
-    } else {
-      status.textContent = "Please fill in all fields.";
-    }
-  });
-}
+  // Contact form submission with localStorage
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  if (form && status) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name && email && message) {
+        const formData = {
+          name,
+          email,
+          message,
+          timestamp: new Date().toISOString()
+        };
+        const stored = JSON.parse(localStorage.getItem("messages")) || [];
+        stored.push(formData);
+        localStorage.setItem("messages", JSON.stringify(stored));
+        status.textContent = `Thanks ${name}, your message was saved!`;
+        form.reset();
+      } else {
+        status.textContent = "Please fill in all fields.";
+      }
+    });
+  }
+});
