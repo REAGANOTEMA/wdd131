@@ -1,6 +1,12 @@
-// Animate headings on scroll
+// Initialize headings for animation on load
+document.querySelectorAll(".animate-heading").forEach(el => {
+  el.style.opacity = 0;
+  el.style.transform = "translateY(-20px)";
+});
+
+// Animate headings when they come into view on scroll
 window.addEventListener("scroll", () => {
-  document.querySelectorAll(".animate-heading").forEach((el) => {
+  document.querySelectorAll(".animate-heading").forEach(el => {
     const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 100) {
       el.style.opacity = 1;
@@ -9,8 +15,8 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Hamburger menu toggle
-document.addEventListener("DOMContentLoaded", function () {
+// DOM ready: hamburger toggle and form submission
+document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav-links");
 
@@ -20,13 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Contact form submission with localStorage
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
 
   if (form && status) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", e => {
       e.preventDefault();
+
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
@@ -38,9 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
           message,
           timestamp: new Date().toISOString()
         };
+
         const stored = JSON.parse(localStorage.getItem("messages")) || [];
         stored.push(formData);
         localStorage.setItem("messages", JSON.stringify(stored));
+
         status.textContent = `Thanks ${name}, your message was saved!`;
         form.reset();
       } else {
