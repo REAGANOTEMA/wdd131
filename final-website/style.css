@@ -1,0 +1,151 @@
+/* Base Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #8B0000;
+  color: white;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Headings */
+h1, h2 {
+  color: #FF69B4;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+}
+
+/* Animated Headings */
+.animate-heading {
+  animation: fadeInDown 1s ease-in;
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Featured Image */
+.featured-img {
+  display: block;
+  max-width: 800px;
+  width: 90%;
+  height: auto;
+  margin: 2em auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.featured-img:hover {
+  transform: scale(1.02);
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Generic Image Styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid #FFD700;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Form Styling */
+form {
+  max-width: 600px;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+input,
+textarea,
+button {
+  padding: 1em;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #FF69B4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #8B0000;
+}
+
+/* Footer */
+footer {
+  background-color: #FFD700;
+  text-align: center;
+  padding: 1.5em 1em;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .featured-img {
+    width: 95%;
+  }
+
+  form {
+    width: 90%;
+    padding: 0 1em;
+  }
+}
