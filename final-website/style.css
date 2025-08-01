@@ -152,7 +152,7 @@ footer {
   font-size: 1em;
 }
 
-/* Responsive Navigation */
+/* Responsive Navigation (Mobile) */
 @media screen and (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -178,6 +178,22 @@ footer {
   nav ul {
     flex-direction: column;
     gap: 1em;
+  }
+}
+
+/* Ensure nav is always visible on desktop */
+@media screen and (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: none;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .menu-toggle {
+    display: none;
   }
 }
 
