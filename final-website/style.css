@@ -16,6 +16,11 @@ header {
 }
 
 /* Navigation */
+nav {
+  position: relative;
+  padding: 1em 0;
+}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -31,6 +36,20 @@ nav a {
   color: #FFD700;
   font-weight: bold;
   font-size: 1.1em;
+}
+
+/* Hamburger Button */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #FFD700;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  z-index: 10;
 }
 
 /* Headings */
@@ -133,13 +152,37 @@ footer {
   font-size: 1em;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 600px) {
+/* Responsive Navigation */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #8B0000;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    z-index: 5;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
   nav ul {
     flex-direction: column;
     gap: 1em;
   }
+}
 
+/* Mobile Optimizations */
+@media screen and (max-width: 600px) {
   .featured-img {
     width: 95%;
   }
