@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+    <meta name="author" content="Reagan Otema">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Product Review Confirmation Page" />
   <title>Review Confirmation</title>
@@ -13,27 +14,33 @@
   <header>
     <div class="container header-inner">
       <h1 class="animated fadeInDown">Thank You for Your Review!</h1>
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button 
+        class="hamburger" 
+        aria-label="Toggle menu" 
+        aria-expanded="false" 
+        aria-controls="nav-menu" 
+        type="button"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </button>
     </div>
     <nav id="nav-menu" hidden>
       <ul>
         <li><a href="form.html" tabindex="0">Home</a></li>
-        <li><a href="#">W1</a></li>
-        <li><a href="#">W2</a></li>
-        <li><a href="#">W3</a></li>
-        <li><a href="#">W4</a></li>
-        <li><a href="#">W5</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W1 (link disabled)">W1</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W2 (link disabled)">W2</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W3 (link disabled)">W3</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W4 (link disabled)">W4</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W5 (link disabled)">W5</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <p class="animated fadeInUp">Your product review has been successfully submitted.</p>
-    <p id="reviewCount" class="animated fadeInUp"></p>
+    <p id="reviewCount" class="animated fadeInUp" aria-live="polite" aria-atomic="true"></p>
     <p><a href="form.html">Submit another review</a></p>
   </main>
 
@@ -45,5 +52,25 @@
       Email: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a>
     </address>
   </footer>
+
+  <script>
+    // Toggle nav menu and update aria-expanded attribute
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      if (navMenu.hasAttribute('hidden')) {
+        navMenu.removeAttribute('hidden');
+        // Enable tab navigation for links inside the nav
+        navMenu.querySelectorAll('a[aria-disabled="true"]').forEach(link => {
+          link.setAttribute('tabindex', '-1'); // Keep disabled links not focusable
+        });
+      } else {
+        navMenu.setAttribute('hidden', '');
+      }
+    });
+  </script>
 </body>
 </html>
