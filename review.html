@@ -64,9 +64,13 @@
       hamburger.setAttribute('aria-expanded', String(!expanded));
       if (navMenu.hasAttribute('hidden')) {
         navMenu.removeAttribute('hidden');
-        // Enable tab navigation for links inside the nav
+        // Keep disabled links unfocusable
         navMenu.querySelectorAll('a[aria-disabled="true"]').forEach(link => {
-          link.setAttribute('tabindex', '-1'); // Keep disabled links not focusable
+          link.setAttribute('tabindex', '-1');
+        });
+        // Ensure enabled links are focusable
+        navMenu.querySelectorAll('a:not([aria-disabled="true"])').forEach(link => {
+          link.setAttribute('tabindex', '0');
         });
       } else {
         navMenu.setAttribute('hidden', '');
