@@ -1,211 +1,156 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Reagan Otema" />
-  <meta name="description" content="A strategic site plan for SkillSprint Uganda — a youth-centered digital learning platform project for WDD 131." />
-  <title>SkillSprint Uganda | Site Plan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Product Review Form for BYU-Idaho WDD 131 Course" />
+  <title>Product Review Form</title>
   <link rel="stylesheet" href="styles/styles.css" />
+  <script defer src="scripts/form.js"></script>
+  <script defer src="scripts/review.js"></script>
+  <script>
+    // Set max date for installationDate to today
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInput = document.getElementById('installationDate');
+      const today = new Date().toISOString().split('T')[0];
+      if (dateInput) {
+        dateInput.max = today;
+      }
+
+      // Character counter for writtenReview textarea
+      const review = document.getElementById('writtenReview');
+      const charCount = document.getElementById('charCount');
+      review.addEventListener('input', () => {
+        const length = review.value.length;
+        charCount.textContent = `${length} / 500 characters`;
+      });
+    });
+  </script>
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
   <header>
-    <div class="logo" aria-label="SkillSprint Uganda logo">
-      <img src="images/logo1.png" alt="SkillSprint Uganda Logo" />
+    <div class="container header-inner">
+      <h1 class="animated fadeInDown">Product Review Form</h1>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <p class="subtitle">Website Planning Document by Reagan Otema</p>
-
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
-      <a href="#site-name">Site Name</a>
-      <a href="#purpose">Purpose</a>
-      <a href="#scenarios">User Scenarios</a>
-      <a href="#colors">Color Scheme</a>
-      <a href="#typography">Typography</a>
-      <a href="#wireframes">Wireframes</a>
-      <a href="#form">Bootcamp Registration</a>
-    </nav>
-
-    <!-- Hamburger Button -->
-    <button
-      class="hamburger"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      type="button"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Mobile Navigation -->
-    <nav
-      id="mobile-menu"
-      class="mobile-nav"
-      role="navigation"
-      aria-label="Mobile Navigation"
-      hidden
-    >
-      <a href="#site-name">Site Name</a>
-      <a href="#purpose">Purpose</a>
-      <a href="#scenarios">User Scenarios</a>
-      <a href="#colors">Color Scheme</a>
-      <a href="#typography">Typography</a>
-      <a href="#wireframes">Wireframes</a>
-      <a href="#form">Bootcamp Registration</a>
+    <nav id="nav-menu" hidden>
+      <ul>
+        <li><a href="form.html" tabindex="0">Home</a></li>
+        <li><a href="#">W1</a></li>
+        <li><a href="#">W2</a></li>
+        <li><a href="#">W3</a></li>
+        <li><a href="#">W4</a></li>
+        <li><a href="#">W5</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- ======= Main Content ======= -->
   <main>
-    <h1>SkillSprint Uganda – Strategic Website Planning</h1>
+    <form id="reviewForm" action="review.html" method="get" novalidate>
+      <fieldset>
+        <legend>Product Information</legend>
 
-    <section id="site-name">
-      <h2>Site Name</h2>
-      <p><strong>SkillSprint Uganda</strong> — a name that represents a national initiative to fast-track practical digital skills development for young Ugandans.</p>
-      <p><strong>Optional Domain:</strong> skillsprint.ug</p>
-    </section>
-
-    <section id="purpose">
-      <h2>Purpose</h2>
-      <p>The website will serve as a digital hub for learning, mentorship, and career growth in Uganda. It will offer bootcamp registration, tutorials in tech and freelancing, and access to a support community of mentors and learners.</p>
-    </section>
-
-    <section id="scenarios">
-      <h2>User Scenarios</h2>
-      <ul>
-        <li>“Where can I register for the next skill training bootcamp near Kampala?”</li>
-        <li>“Are there free beginner tutorials for web development or freelancing?”</li>
-      </ul>
-    </section>
-
-    <section id="colors">
-      <h2>Color Scheme</h2>
-      <p>The chosen palette emphasizes energy, trust, and accessibility:</p>
-      <ul>
-        <li><strong>Dark Blue (#1A237E):</strong> Trustworthy and professional – used for headers and navigation.</li>
-        <li><strong>Pink (#E91E63):</strong> Energetic accents for call-to-action and highlights.</li>
-        <li><strong>Red (#D32F2F):</strong> Used sparingly for urgency, buttons, or warnings.</li>
-        <li><strong>Yellow (#FBC02D):</strong> Bright, positive background highlights or badges.</li>
-      </ul>
-    </section>
-
-    <section id="typography">
-      <h2>Typography</h2>
-      <ul>
-        <li><strong>Merriweather:</strong> Headlines and section titles for a trustworthy and bold feel.</li>
-        <li><strong>Open Sans:</strong> Paragraphs and UI text — modern, clean, and readable.</li>
-      </ul>
-    </section>
-
-    <section id="wireframes">
-      <h2>Wireframes</h2>
-      <p>Visual structure of the home page layout in both mobile and desktop formats:</p>
-
-      <div class="wireframe" tabindex="0" aria-label="Wireframe descriptions for mobile and desktop views">
-        <h3>Mobile Layout</h3>
-        <p>Centered logo, hamburger menu, stacked hero with CTA, vertically listed programs, footer with contact & socials.</p>
-
-        <h3>Desktop Layout</h3>
-        <p>Top horizontal nav (logo-left, menu-center, auth-right), banner with headline and action button, content grid (3 columns), and full footer with details.</p>
-
-        <div class="wireframe-images">
-          <img src="images/wireframe-mobile.png" alt="Mobile wireframe layout" />
-          <img src="images/wireframe-desktop.png" alt="Desktop wireframe layout" />
-        </div>
-      </div>
-    </section>
-
-    <section id="form">
-      <h2>Bootcamp Registration Form</h2>
-      <form method="get" action="review.html">
-        <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" required aria-required="true" />
-
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required aria-required="true" />
-
-        <fieldset>
-          <legend>Preferred Bootcamp Location:</legend>
-
-          <label>
-            <input type="radio" name="location" value="Kampala" required aria-required="true" />
-            Kampala
-          </label>
-
-          <label>
-            <input type="radio" name="location" value="Entebbe" />
-            Entebbe
-          </label>
-
-          <label>
-            <input type="radio" name="location" value="Jinja" />
-            Jinja
-          </label>
-
-          <label>
-            <input type="radio" name="location" value="Mbale" />
-            Mbale
-          </label>
-
-          <label>
-            <input type="radio" name="location" value="Mbarara" />
-            Mbarara
-          </label>
-        </fieldset>
-
-        <fieldset>
-          <legend>Areas of Interest (Select all that apply):</legend>
-
-          <label>
-            <input type="checkbox" name="interests[]" value="Web Development" />
-            Web Development
-          </label>
-
-          <label>
-            <input type="checkbox" name="interests[]" value="Freelancing" />
-            Freelancing
-          </label>
-
-          <label>
-            <input type="checkbox" name="interests[]" value="Graphic Design" />
-            Graphic Design
-          </label>
-
-          <label>
-            <input type="checkbox" name="interests[]" value="Digital Marketing" />
-            Digital Marketing
-          </label>
-        </fieldset>
-
-        <label for="comments">Additional Comments:</label>
-        <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Your comments here..."></textarea>
-
-        <label for="bootcamp-time">Preferred Bootcamp Time:</label>
-        <select id="bootcamp-time" name="bootcamp-time" required aria-required="true">
-          <option value="" disabled selected>Select a time</option>
-          <option value="morning">Morning</option>
-          <option value="afternoon">Afternoon</option>
-          <option value="evening">Evening</option>
+        <label for="productName">
+          Product Name <span aria-label="required">*</span>
+        </label>
+        <select id="productName" name="productName" required aria-required="true" class="animated fadeIn">
+          <option value="" disabled selected>Select a Product ...</option>
+          <!-- Options populated dynamically -->
         </select>
 
-    <input type="submit">
-      </form>
-    </section>
+        <fieldset id="ratingFieldset">
+          <legend>
+            Overall Rating <span aria-label="required">*</span>
+          </legend>
+          <div class="rating-group" role="radiogroup" aria-labelledby="ratingLegend" aria-required="true" tabindex="0">
+            <input type="radio" id="rate1" name="rating" value="1" required />
+            <label for="rate1" title="1 star">☆</label>
+
+            <input type="radio" id="rate2" name="rating" value="2" />
+            <label for="rate2" title="2 stars">☆</label>
+
+            <input type="radio" id="rate3" name="rating" value="3" />
+            <label for="rate3" title="3 stars">☆</label>
+
+            <input type="radio" id="rate4" name="rating" value="4" />
+            <label for="rate4" title="4 stars">☆</label>
+
+            <input type="radio" id="rate5" name="rating" value="5" />
+            <label for="rate5" title="5 stars">☆</label>
+          </div>
+        </fieldset>
+
+        <label for="installationDate">
+          Date of Installation <span aria-label="required">*</span>
+        </label>
+        <input
+          type="date"
+          id="installationDate"
+          name="installationDate"
+          required
+          aria-required="true"
+          max=""
+          class="animated fadeIn"
+        />
+      </fieldset>
+
+      <fieldset>
+        <legend>Features</legend>
+        <p class="animated fadeIn">Check all features you found useful:</p>
+
+        <input type="checkbox" id="feature1" name="features" value="Ease of Use" />
+        <label for="feature1">Ease of Use</label>
+
+        <input type="checkbox" id="feature2" name="features" value="Durability" />
+        <label for="feature2">Durability</label>
+
+        <input type="checkbox" id="feature3" name="features" value="Design" />
+        <label for="feature3">Design</label>
+
+        <input type="checkbox" id="feature4" name="features" value="Value for Money" />
+        <label for="feature4">Value for Money</label>
+
+        <input type="checkbox" id="feature5" name="features" value="Customer Support" />
+        <label for="feature5">Customer Support</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Review</legend>
+
+        <label for="writtenReview">Write your review (optional):</label>
+        <textarea
+          id="writtenReview"
+          name="writtenReview"
+          rows="5"
+          cols="33"
+          maxlength="500"
+          placeholder="Write your review here..."
+          class="animated fadeIn"
+        ></textarea>
+        <p id="charCount" aria-live="polite" class="animated fadeIn" style="font-size: 0.9rem; color: #555;">
+          0 / 500 characters
+        </p>
+
+        <label for="userName">Your Name (optional):</label>
+        <input type="text" id="userName" name="userName" placeholder="Enter your name" />
+      </fieldset>
+
+      <button type="submit" class="animated fadeInUp">Submit Review</button>
+    </form>
   </main>
 
-  <!-- ======= Footer ======= -->
-   ...
   <footer>
-    <p>Contact: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a> | Phone: +256 772 514889</p>
+    <p>&copy; Brigham Young University-Idaho | All rights reserved</p>
+    <address>
+      <strong>Reagan Otema</strong><br />
+      Phone: <a href="tel:+256772514889">+256 772 514 889</a><br />
+      Email: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a>
+    </address>
   </footer>
-
-  <!-- Link the new JS file -->
-  <script src="scripts/siteplan.js" defer></script>
 </body>
 </html>
