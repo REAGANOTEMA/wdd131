@@ -10,20 +10,6 @@
   <link rel="stylesheet" href="styles/styles.css">
   <script defer src="scripts/review.js"></script>
   <script defer src="scripts/form.js"></script>
-  <style>
-    /* Add this to your styles.css or inline */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
-    }
-  </style>
 </head>
 
 <body>
@@ -116,26 +102,29 @@
         <label for="feature5">Customer Support</label>
       </fieldset>
 
-      <fieldset>
-        <legend>Review</legend>
+     <fieldset>
+  <legend>Review</legend>
 
-        <label for="writtenReview">Write your review (optional):</label>
-        <textarea
-          id="writtenReview"
-          name="writtenReview"
-          rows="5"
-          cols="33"
-          maxlength="500"
-          placeholder="Write your review here..."
-          class="animated fadeIn"
-        ></textarea>
-        <p id="charCount" aria-live="polite" class="animated fadeIn" style="font-size: 0.9rem; color: #555;">
-          0 / 500 characters
-        </p>
+  <label for="writtenReview">Write your review (optional):</label>
+  <textarea
+    id="writtenReview"
+    name="writtenReview"
+    rows="5"
+    cols="33"
+    maxlength="500"
+    placeholder="Write your review here..."
+    class="animated fadeIn"
+  ></textarea>
 
-        <label for="userName">Your Name (optional):</label>
-        <input type="text" id="userName" name="userName" placeholder="Enter your name">
-      </fieldset>
+  <!-- Character count goes right here -->
+  <p id="charCount" aria-live="polite" class="animated fadeIn">
+    0 / 500 characters
+  </p>
+
+  <label for="userName">Your Name (optional):</label>
+  <input type="text" id="userName" name="userName" placeholder="Enter your name">
+</fieldset>
+
 
       <button type="submit">Submit</button>
     </form>

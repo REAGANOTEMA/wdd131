@@ -407,3 +407,19 @@ input[type="checkbox"] + label {
   margin-top: 0.3rem;
   text-align: right;
 }
+    /* Add this to your styles.css or inline */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    #charCount {
+  font-size: 0.9rem;
+  color: #555;
+}
