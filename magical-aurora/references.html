@@ -9,17 +9,25 @@
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Magical Aurora</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="references.html" class="active">References</a></li>
-            </ul>
-        </nav>
-    </header>
+   <header>
+  <nav class="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="logo" tabindex="0">Magical Aurora</div>
+
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" id="primary-navigation">
+      <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </nav>
+</header>
+
 
     <main>
         <section class="references-section">

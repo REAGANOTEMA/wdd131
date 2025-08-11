@@ -536,4 +536,108 @@ footer {
     color: var(--text-dark);
     min-height: 3.5rem; /* Keeps uniform height for captions */
 }
+/* Mobile & small devices: max-width 480px */
+@media (max-width: 480px) {
+  /* Make header/nav easier on small screens */
+  header {
+    padding: 1rem;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0;
+    font-size: 1.1rem;
+  }
+
+  /* Gallery grid: 1 column full width */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  /* Increase image size for small screens (full width) */
+  .gallery-grid img {
+    aspect-ratio: auto; /* Let height adjust naturally */
+    border-radius: 12px;
+  }
+
+  /* Caption font size for readability */
+  .gallery-grid figcaption {
+    font-size: 0.9rem;
+    min-height: auto;
+  }
+
+  /* Buttons bigger and easier to tap */
+  .btn-glow {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    border-radius: 10px;
+  }
+  
+  /* Reduce padding in sections to fit smaller screens */
+  section {
+    padding: 1.5rem 1rem;
+  }
+}
+.hamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--secondary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 
