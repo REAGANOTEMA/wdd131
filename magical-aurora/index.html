@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A magical, animated, and professional website showcasing smooth design, beautiful images, and functionality." />
+    <title>Magical Aurora | Home</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Primary navigation">
+            <div class="logo" tabindex="0">Magical Aurora</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Welcome section">
+            <h1 class="fade-in">Welcome to the Magical Aurora</h1>
+            <p class="fade-in-delay">Where code meets beauty, and design dances with interactivity.</p>
+            <p class="fade-in-delay" style="font-style: italic; color: var(--accent); margin-top: 1rem;">
+                Crafted meticulously by <strong>Reagan Otema</strong> — weaving magic in every line of code.
+            </p>
+            <a href="about.html" class="btn-glow" aria-label="Learn more about Magical Aurora">Learn More</a>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="image-gallery" aria-label="Gallery of beautiful images">
+            <h2>Gallery of Magical Aurora</h2>
+            <div class="gallery-grid">
+
+               <figure>
+    <img src="images/aurora-night-sky.jpg" alt="Aurora borealis lighting the night sky above snowy mountains." loading="lazy" />
+    <figcaption>A magical aurora dances with vivid greens and purples above snow-capped peaks.</figcaption>
+</figure>
+
+<figure>
+    <img src="images/mystic-forest-fog.jpg" alt="Mist-shrouded forest with tall trees invoking mystery and calm." loading="lazy" />
+    <figcaption>Misty forest whispers secrets beneath towering trees cloaked in ethereal fog.</figcaption>
+</figure>
+
+<figure>
+    <img src="images/crystal-clear-lake.jpg" alt="Clear alpine lake reflecting pine trees and mountains under blue sky." loading="lazy" />
+    <figcaption>Pristine alpine lake mirrors pine trees and rugged peaks in perfect stillness.</figcaption>
+</figure>
+
+<figure>
+    <img src="images/starry-night-sky.jpg" alt="Starry night sky over calm lake with gentle ripples." loading="lazy" />
+    <figcaption>Countless stars sparkle above a tranquil lake, inspiring wonder and peace.</figcaption>
+</figure>
+
+<figure>
+    <img src="images/sunset-over-ocean.jpg" alt="Sunset with golden and pink hues over calm ocean horizon." loading="lazy" />
+    <figcaption>Sunset paints sky with gold and pink, closing the day peacefully.</figcaption>
+</figure>
+
+<figure>
+    <img src="images/wildflower-meadow.jpg" alt="Vibrant meadow of colorful wildflowers under blue sky." loading="lazy" />
+    <figcaption>Wildflower meadow bursts with color, celebrating growth, hope, and nature’s joy.</figcaption>
+</figure>
+
+            </div>
+        </section>
+
+        <!-- Dynamic Section from JS -->
+        <section class="dynamic-content" aria-label="Featured stars">
+            <h2>Our Featured Stars</h2>
+            <div id="stars-container" aria-live="polite">
+                <!-- JavaScript will insert cards here -->
+            </div>
+        </section>
+    </main>
+
+   <footer>
+  <div class="footer-container">
+    <div class="footer-contact">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+256772514889">+256 772 514 889</a></p>
+    </div>
+
+    <div class="footer-info">
+      <p>&copy; <span id="year"></span> Magical Aurora. Created by Reagan Otema.</p>
+      <p><a href="references.html">References</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

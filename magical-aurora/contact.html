@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Magical Aurora. Send us a message today!">
+    <title>Magical Aurora | Contact</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Magical Aurora</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+            <p>Have a question or just want to say hello? Fill out the form below.</p>
+
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Type your message..."></textarea>
+
+                <button type="submit" class="btn-glow">Send Message</button>
+            </form>
+
+            <div id="formResponse" class="form-response"></div>
+        </section>
+    </main>
+
+   <footer>
+  <div class="footer-container">
+    <div class="footer-contact">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+256772514889">+256 772 514 889</a></p>
+    </div>
+
+    <div class="footer-info">
+      <p>&copy; <span id="year"></span> Magical Aurora. Created by Reagan Otema.</p>
+      <p><a href="references.html">References</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
