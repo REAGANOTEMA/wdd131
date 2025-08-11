@@ -2,21 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Product Review Confirmation Page for BYU-Idaho WDD 131 Course" />
-  <meta name="author" content="Reagan Otema" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Product Review Confirmation Page for BYU-Idaho WDD 131 Course">
+  <meta name="author" content="Reagan Otema">
   <title>Review Confirmation - BYU-Idaho</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
   <script defer src="scripts/review.js"></script>
   <script defer src="scripts/form.js"></script>
+  <style>
+    /* Add this to your styles.css or inline */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </head>
 
 <body>
   <header>
     <div class="container header-inner">
       <h1 class="animated fadeInDown">Product Review Form</h1>
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu" type="button">
         <span></span>
         <span></span>
         <span></span>
@@ -25,11 +39,11 @@
     <nav id="nav-menu" hidden>
       <ul>
         <li><a href="form.html" tabindex="0">Home</a></li>
-        <li><a href="#">W1</a></li>
-        <li><a href="#">W2</a></li>
-        <li><a href="#">W3</a></li>
-        <li><a href="#">W4</a></li>
-        <li><a href="#">W5</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W1 (link disabled)">W1</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W2 (link disabled)">W2</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W3 (link disabled)">W3</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W4 (link disabled)">W4</a></li>
+        <li><a href="#" tabindex="-1" aria-disabled="true" aria-label="W5 (link disabled)">W5</a></li>
       </ul>
     </nav>
   </header>
@@ -40,7 +54,7 @@
         <legend>Product Information</legend>
 
         <label for="productName">
-          Product Name <span aria-label="required">*</span>
+          Product Name <span aria-hidden="true">*</span><span class="sr-only">required</span>
         </label>
         <select id="productName" name="productName" required aria-required="true" class="animated fadeIn">
           <option value="" disabled selected>Select a Product ...</option>
@@ -48,29 +62,29 @@
         </select>
 
         <fieldset id="ratingFieldset">
-          <legend>
-            Overall Rating <span aria-label="required">*</span>
+          <legend id="ratingLegend">
+            Overall Rating <span aria-hidden="true">*</span><span class="sr-only">required</span>
           </legend>
-          <div class="rating-group" role="radiogroup" aria-labelledby="ratingLegend" aria-required="true" tabindex="0">
-            <input type="radio" id="rate1" name="rating" value="1" required />
+          <div class="rating-group" role="radiogroup" aria-labelledby="ratingLegend" aria-required="true">
+            <input type="radio" id="rate1" name="rating" value="1" required>
             <label for="rate1" title="1 star">☆</label>
 
-            <input type="radio" id="rate2" name="rating" value="2" />
+            <input type="radio" id="rate2" name="rating" value="2">
             <label for="rate2" title="2 stars">☆</label>
 
-            <input type="radio" id="rate3" name="rating" value="3" />
+            <input type="radio" id="rate3" name="rating" value="3">
             <label for="rate3" title="3 stars">☆</label>
 
-            <input type="radio" id="rate4" name="rating" value="4" />
+            <input type="radio" id="rate4" name="rating" value="4">
             <label for="rate4" title="4 stars">☆</label>
 
-            <input type="radio" id="rate5" name="rating" value="5" />
+            <input type="radio" id="rate5" name="rating" value="5">
             <label for="rate5" title="5 stars">☆</label>
           </div>
         </fieldset>
 
         <label for="installationDate">
-          Date of Installation <span aria-label="required">*</span>
+          Date of Installation <span aria-hidden="true">*</span><span class="sr-only">required</span>
         </label>
         <input
           type="date"
@@ -79,26 +93,26 @@
           required
           aria-required="true"
           class="animated fadeIn"
-        />
+        >
       </fieldset>
 
       <fieldset>
         <legend>Features</legend>
         <p class="animated fadeIn">Check all features you found useful:</p>
 
-        <input type="checkbox" id="feature1" name="features" value="Ease of Use" />
+        <input type="checkbox" id="feature1" name="features" value="Ease of Use">
         <label for="feature1">Ease of Use</label>
 
-        <input type="checkbox" id="feature2" name="features" value="Durability" />
+        <input type="checkbox" id="feature2" name="features" value="Durability">
         <label for="feature2">Durability</label>
 
-        <input type="checkbox" id="feature3" name="features" value="Design" />
+        <input type="checkbox" id="feature3" name="features" value="Design">
         <label for="feature3">Design</label>
 
-        <input type="checkbox" id="feature4" name="features" value="Value for Money" />
+        <input type="checkbox" id="feature4" name="features" value="Value for Money">
         <label for="feature4">Value for Money</label>
 
-        <input type="checkbox" id="feature5" name="features" value="Customer Support" />
+        <input type="checkbox" id="feature5" name="features" value="Customer Support">
         <label for="feature5">Customer Support</label>
       </fieldset>
 
@@ -120,7 +134,7 @@
         </p>
 
         <label for="userName">Your Name (optional):</label>
-        <input type="text" id="userName" name="userName" placeholder="Enter your name" />
+        <input type="text" id="userName" name="userName" placeholder="Enter your name">
       </fieldset>
 
       <button type="submit">Submit</button>
@@ -130,10 +144,11 @@
   <footer>
     <p>&copy; Brigham Young University-Idaho | All rights reserved</p>
     <address>
-      <strong>Reagan Otema</strong><br />
-      Phone: <a href="tel:+256772514889">+256 772 514 889</a><br />
+      <strong>Reagan Otema</strong><br>
+      Phone: <a href="tel:+256772514889">+256 772 514 889</a><br>
       Email: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a>
     </address>
   </footer>
+
 </body>
 </html>

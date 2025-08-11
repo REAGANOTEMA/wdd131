@@ -12,10 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Get references
   const reviewCount = document.getElementById('reviewCount');
+  if (!reviewCount) return; // safety check
+
+  // Helper to escape HTML
+  const escapeHTML = (str) => 
+    String(str).replace(/[&<>"']/g, c => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[c]);
 
   // Extract values from URL
   const productId = urlParams.get('productName');
-  const rating = urlParams.get('rating');
+  const ratingRaw = urlParams.get('rating');
+  const rating = ratingRaw && !isNaN(ratingRaw) ? parseInt(ratingRaw, 10) : 'N/A';
   const installationDate = urlParams.get('installationDate');
   const features = urlParams.getAll('features'); // may be multiple
   const writtenReview = urlParams.get('writtenReview') || 'No written review provided.';
@@ -23,18 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Build display HTML
   let html = `<h2>Review Details</h2>`;
-  html += `<p><strong>Product:</strong> ${products[productId] || 'Unknown Product'}</p>`;
-  html += `<p><strong>Rating:</strong> ${rating} ${rating == 1 ? 'star' : 'stars'}</p>`;
-  html += `<p><strong>Installation Date:</strong> ${installationDate || 'N/A'}</p>`;
+  html += `<p><strong>Product:</strong> ${escapeHTML(products[productId] || 'Unknown Product')}</p>`;
+  html += `<p><strong>Rating:</strong> ${escapeHTML(rating)} ${rating === 1 ? 'star' : 'stars'}</p>`;
+  html += `<p><strong>Installation Date:</strong> ${escapeHTML(installationDate || 'N/A')}</p>`;
 
   if (features.length > 0) {
-    html += `<p><strong>Features Found Useful:</strong> ${features.join(', ')}</p>`;
+    html += `<p><strong>Features Found Useful:</strong> ${features.map(escapeHTML).join(', ')}</p>`;
   } else {
     html += `<p><strong>Features Found Useful:</strong> None selected</p>`;
   }
 
-  html += `<p><strong>Review:</strong> ${writtenReview}</p>`;
-  html += `<p><strong>Reviewed By:</strong> ${userName}</p>`;
+  html += `<p><strong>Review:</strong> ${escapeHTML(writtenReview)}</p>`;
+  html += `<p><strong>Reviewed By:</strong> ${escapeHTML(userName)}</p>`;
 
   reviewCount.innerHTML = html;
 });

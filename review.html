@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Product Review Confirmation Page for BYU-Idaho WDD 131 Course" />
-  <meta name="author" content="Reagan Otema" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Product Review Confirmation Page for BYU-Idaho WDD 131 Course">
+  <meta name="author" content="Reagan Otema">
   <title>Review Confirmation - BYU-Idaho</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
   <script defer src="scripts/review.js"></script>
   <script defer src="scripts/form.js"></script>
 </head>
@@ -48,8 +48,8 @@
   <footer>
     <p>&copy; Brigham Young University-Idaho | All rights reserved</p>
     <address>
-      <strong>Reagan Otema</strong><br />
-      Phone: <a href="tel:+256772514889">+256 772 514 889</a><br />
+      <strong>Reagan Otema</strong><br>
+      Phone: <a href="tel:+256772514889">+256 772 514 889</a><br>
       Email: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a>
     </address>
   </footer>
@@ -62,12 +62,15 @@
     hamburger.addEventListener('click', () => {
       const expanded = hamburger.getAttribute('aria-expanded') === 'true';
       hamburger.setAttribute('aria-expanded', String(!expanded));
+
       if (navMenu.hasAttribute('hidden')) {
         navMenu.removeAttribute('hidden');
+
         // Keep disabled links unfocusable
         navMenu.querySelectorAll('a[aria-disabled="true"]').forEach(link => {
           link.setAttribute('tabindex', '-1');
         });
+
         // Ensure enabled links are focusable
         navMenu.querySelectorAll('a:not([aria-disabled="true"])').forEach(link => {
           link.setAttribute('tabindex', '0');

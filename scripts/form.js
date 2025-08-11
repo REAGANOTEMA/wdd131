@@ -1,141 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Hamburger menu toggle
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
 
-  if (!hamburger || !mobileMenu) return;
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+      hamburger.classList.toggle('active');
 
-  hamburger.addEventListener('click', () => {
-    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-
-    // Toggle aria-expanded attribute
-    hamburger.setAttribute('aria-expanded', String(!isExpanded));
-
-    // Toggle active class for hamburger animation
-    hamburger.classList.toggle('active');
-
-    // Animate mobile menu
-    if (isExpanded) {
-      // Hide menu with fade out + slide up
-      mobileMenu.style.animation = 'slideFadeOut 300ms forwards';
-      // After animation ends, hide menu completely
-      mobileMenu.addEventListener(
-        'animationend',
-        () => {
-          mobileMenu.setAttribute('hidden', '');
-          mobileMenu.style.animation = '';
-        },
-        { once: true }
-      );
-    } else {
-      // Remove hidden to show menu
-      mobileMenu.removeAttribute('hidden');
-      // Animate fade in + slide down
-      mobileMenu.style.animation = 'slideFadeIn 300ms forwards';
-    }
-  });
-});
-const products = [
-  { id: "prod1", name: "Deluxe Toaster" },
-  { id: "prod2", name: "Super Blender" },
-  { id: "prod3", name: "Smart Vacuum" },
-  { id: "prod4", name: "4K TV" },
-  { id: "prod5", name: "Wireless Headphones" }
-];
-
-document.addEventListener("DOMContentLoaded", () => {
-  const productSelect = document.getElementById("productName");
-  const installationDate = document.getElementById("installationDate");
-
-  if (productSelect) {
-    // Populate product select dynamically
-    products.forEach((product) => {
-      const option = document.createElement("option");
-      option.value = product.id;
-      option.textContent = product.name;
-      productSelect.appendChild(option);
-    });
-  }
-
-  if (installationDate) {
-    // Set max date for installationDate to today
-    const today = new Date().toISOString().split("T")[0];
-    installationDate.setAttribute("max", today);
-  }
-
-  // Smooth scrolling for internal anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", (e) => {
-      const href = anchor.getAttribute("href");
-      if (href.length > 1) { // ignore href="#"
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+      if (isExpanded) {
+        mobileMenu.style.animation = 'slideFadeOut 300ms forwards';
+        mobileMenu.addEventListener(
+          'animationend',
+          () => {
+            mobileMenu.setAttribute('hidden', '');
+            mobileMenu.style.animation = '';
+          },
+          { once: true }
+        );
+      } else {
+        mobileMenu.removeAttribute('hidden');
+        mobileMenu.style.animation = 'slideFadeIn 300ms forwards';
       }
     });
-  });
-});
-document.addEventListener('DOMContentLoaded', () => {
-  const reviewForm = document.getElementById('reviewForm');
-  const reviewTextarea = document.getElementById('writtenReview');
-  const charCount = document.getElementById('charCount');
-  const productSelect = document.getElementById('productName');
-  const installationDate = document.getElementById('installationDate');
-  const submitButton = reviewForm.querySelector('button[type="submit"]');
-
-  // Product list (unique)
-  const products = [
-    { id: "prod1", name: "Deluxe Toaster" },
-    { id: "prod2", name: "Super Blender" },
-    { id: "prod3", name: "Smart Vacuum" },
-    { id: "prod4", name: "4K TV" },
-    { id: "prod5", name: "Wireless Headphones" },
-  ];
-
-  // Populate product dropdown
-  products.forEach(product => {
-    const option = document.createElement('option');
-    option.value = product.id;
-    option.textContent = product.name;
-    productSelect.appendChild(option);
-  });
-
-  // Set max date for installationDate to today
-  const today = new Date().toISOString().split('T')[0];
-  installationDate.max = today;
-
-  // Update char count on input
-  reviewTextarea.addEventListener('input', () => {
-    const length = reviewTextarea.value.length;
-    charCount.textContent = `${length} / 500 characters`;
-  });
-
-  // Enable submit only if required fields filled
-  function validateForm() {
-    const productSelected = productSelect.value !== "";
-    const installationDateSet = installationDate.value !== "";
-    const ratingChecked = reviewForm.querySelector('input[name="rating"]:checked') !== null;
-
-    submitButton.disabled = !(productSelected && installationDateSet && ratingChecked);
   }
 
-  // Initial validate & add event listeners to required fields
-  validateForm();
-  productSelect.addEventListener('change', validateForm);
-  installationDate.addEventListener('change', validateForm);
-  reviewForm.querySelectorAll('input[name="rating"]').forEach(radio => {
-    radio.addEventListener('change', validateForm);
-  });
-
-  // Confirm before submit
-  reviewForm.addEventListener('submit', (e) => {
-    if (!confirm('Are you sure you want to submit your review?')) {
-      e.preventDefault();
-    }
-  });
-});
-document.addEventListener('DOMContentLoaded', () => {
+  // Product list - single source of truth
   const products = [
     { id: "prod1", name: "Deluxe Toaster" },
     { id: "prod2", name: "Super Blender" },
@@ -144,12 +35,75 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: "prod5", name: "Wireless Headphones" }
   ];
 
+  // Populate product select dropdown (if present)
   const productSelect = document.getElementById('productName');
+  if (productSelect) {
+    // Clear existing options (optional, in case they exist)
+    productSelect.innerHTML = '<option value="">Select a product</option>';
+    products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product.id;
+      option.textContent = product.name;
+      productSelect.appendChild(option);
+    });
+  }
 
-  products.forEach(product => {
-    const option = document.createElement('option');
-    option.value = product.id;
-    option.textContent = product.name;
-    productSelect.appendChild(option);
+  // Set max date for installationDate input (if present)
+  const installationDate = document.getElementById('installationDate');
+  if (installationDate) {
+    const today = new Date().toISOString().split('T')[0];
+    installationDate.setAttribute('max', today);
+  }
+
+  // Review form validation and char count
+  const reviewForm = document.getElementById('reviewForm');
+  if (reviewForm) {
+    const reviewTextarea = document.getElementById('writtenReview');
+    const charCount = document.getElementById('charCount');
+    const submitButton = reviewForm.querySelector('button[type="submit"]');
+
+    if (reviewTextarea && charCount) {
+      reviewTextarea.addEventListener('input', () => {
+        const length = reviewTextarea.value.length;
+        charCount.textContent = `${length} / 500 characters`;
+      });
+    }
+
+    function validateForm() {
+      const productSelected = productSelect ? productSelect.value !== "" : false;
+      const installationDateSet = installationDate ? installationDate.value !== "" : false;
+      const ratingChecked = reviewForm.querySelector('input[name="rating"]:checked') !== null;
+      if (submitButton) {
+        submitButton.disabled = !(productSelected && installationDateSet && ratingChecked);
+      }
+    }
+
+    validateForm();
+
+    if (productSelect) productSelect.addEventListener('change', validateForm);
+    if (installationDate) installationDate.addEventListener('change', validateForm);
+    reviewForm.querySelectorAll('input[name="rating"]').forEach(radio => {
+      radio.addEventListener('change', validateForm);
+    });
+
+    reviewForm.addEventListener('submit', (e) => {
+      if (!confirm('Are you sure you want to submit your review?')) {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // Smooth scrolling for internal anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (href.length > 1) { // ignore href="#"
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
   });
 });
