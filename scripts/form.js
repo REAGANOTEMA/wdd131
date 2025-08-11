@@ -107,3 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const reviewTextarea = document.getElementById('writtenReview');
+  const charCount = document.getElementById('charCount');
+
+  if (!reviewTextarea || !charCount) return;
+
+  reviewTextarea.addEventListener('input', () => {
+    const currentLength = reviewTextarea.value.length;
+    charCount.textContent = `${currentLength} / 500 characters`;
+  });
+});

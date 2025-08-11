@@ -6,7 +6,7 @@
   <meta name="description" content="Product Review Confirmation Page for BYU-Idaho WDD 131 Course">
   <meta name="author" content="Reagan Otema">
   <title>Review Confirmation - BYU-Idaho</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
   <script defer src="scripts/review.js"></script>
   <script defer src="scripts/form.js"></script>
@@ -101,8 +101,7 @@
         <input type="checkbox" id="feature5" name="features" value="Customer Support">
         <label for="feature5">Customer Support</label>
       </fieldset>
-
-     <fieldset>
+<fieldset>
   <legend>Review</legend>
 
   <label for="writtenReview">Write your review (optional):</label>
@@ -113,6 +112,7 @@
     cols="33"
     maxlength="500"
     placeholder="Write your review here..."
+    aria-describedby="charCount"
     class="animated fadeIn"
   ></textarea>
 
@@ -124,6 +124,7 @@
   <label for="userName">Your Name (optional):</label>
   <input type="text" id="userName" name="userName" placeholder="Enter your name">
 </fieldset>
+
 
 
       <button type="submit">Submit</button>
